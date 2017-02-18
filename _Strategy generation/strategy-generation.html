@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- adam jaamour -->
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Strategy management</title>
+    <link rel="stylesheet" type="text/css" href="strategy.css">
+    <script src="range-slider-value.js"></script>
+</head>
+
+<!------------------------------------------------------------------------------------------------------- -------------->
+
+<body>
+<div id="wrapper">
+
+    <main>
+        <div id="content">
+            <div class="innertube">
+                <h1>Strategy Generation</h1>
+                <h2>Available options</h2>
+                <select>
+                    <option value="1">Stock 1</option>
+                    <option value="2">Stock 2</option>
+                    <option value="3">Stock 3</option>
+                    <option value="4">Stock 4</option>
+                    <option value="5">Stock 5</option>
+                    <option value="6">Stock 6</option>
+                    <option value="7">Stock 7</option>
+                </select>
+                <br>
+                <h2>Amount:</h2>
+                <div class="nowrap">
+                    <h6>£1000</h6>
+                    <input id="slider" type="range" min="1000" max="100000" step="1000" value="10000" onchange="updateTextInput(this.value);"/>
+                    <h6>£100000</h6>
+                </div>
+                <br>
+                <span class="currency-input">£ <input type="text" id="textInput" value="10000"></span>
+                <br><br>
+                <button>Buy</button>
+            </div>
+        </div>
+    </main>
+
+    <nav id="nav">
+        <div class="innertube">
+            <h2><u>Filters</u></h2>
+                <select>
+                    <option value="1">Economic Sector 1</option>
+                    <option value="2">Economic Sector 2</option>
+                    <option value="3">Economic Sector 3</option>
+                </select>
+
+            <br><br>
+
+            <h2><u>Current choice</u></h2>
+            <h5 class="choice">example</h5>
+            <div class="nowrap">
+                <h4>Technical Risk: </h4>
+                <p>XX%</p>
+            </div>
+            <br>
+            <div class="nowrap">
+                <h4>Physical Risk: </h4>
+                <p>XX%</p>
+            </div>
+        </div>
+    </nav>
+
+</div>
+</body>
+</html>
