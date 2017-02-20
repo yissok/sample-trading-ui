@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+}
+
+#rcorners1.active {
+    border-radius: 5px;
+    background: #5CB85C;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#rcorners1.x {
+    background-color: #275927;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #275927;
+}
+
+#rcorners1:hover:not(.active) {
+    border-radius: 5px;
+    background: #5CB85C;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #275927;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+li {
+    float: left;
+}
