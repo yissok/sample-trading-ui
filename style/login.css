@@ -35,7 +35,7 @@ body {
     background: #5CB85C;
 }
 
-ul {
+#topBar {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -44,6 +44,11 @@ ul {
     position: fixed;
     top: 0;
     width: 100%;
+}
+
+ul
+{
+    list-style-type: none;
 }
 
 li {

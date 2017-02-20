@@ -7,11 +7,31 @@
     <title>Strategy management</title>
     <link rel="stylesheet" type="text/css" href="../../style/strategy.css">
     <script src="../../js/range-slider-value.js"></script>
+    <!-- Bootstrap -->
+    <link href="../../public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../public/dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- myCSS -->
+    <link rel="stylesheet" type="text/css" href="../../style/login.css">
+    
+    
+    
+    <style>
+        p,h1,h2,h3,h4,h5 {
+            color: white;
+        }
+    </style>
 </head>
 
-<!----------------------------------------------------------------- header ------------------------------------------------------------------->
 
-<div class="topBar">
+
+
+
+<!----------------------------------------------------------------- body ------------------------------------------------------------------->
+
+<body style="background-color:#193919">
+    
+    <!----------------------------------------------------------------- header ------------------------------------------------------------------->
+    <div class="topBar" id="topBar">
     <ul>
         <li><img src="../../images/logo.png" alt="Logo" width="172px" height="40px" align="middle" vspace="5" hspace="15"/>
         </li>
@@ -30,66 +50,91 @@
         </li>
     </ul>
 </div>
-
-<!----------------------------------------------------------------- body ------------------------------------------------------------------->
-
-<body>
+    <!----------------------------------------------------------------- header ------------------------------------------------------------------->
+    
 <div id="wrapper">
 
-    <main>
-        <div id="content">
-            <div class="innertube">
-                <h1>Strategy Generation</h1>
-                <h2>Available options</h2>
-                <select>
-                    <option value="1">Stock 1</option>
-                    <option value="2">Stock 2</option>
-                    <option value="3">Stock 3</option>
-                    <option value="4">Stock 4</option>
-                    <option value="5">Stock 5</option>
-                    <option value="6">Stock 6</option>
-                    <option value="7">Stock 7</option>
-                </select>
-                <br>
-                <h2>Amount:</h2>
-                <div class="nowrap">
-                    <h6>£1000</h6>
-                    <input id="slider" type="range" min="1000" max="100000" step="1000" value="10000"
-                           onchange="updateTextInput(this.value);"/>
-                    <h6>£100000</h6>
+    <div class="row" style="width: 95%;
+                                float: left;
+                                margin: 70px 0 15px 15px;">
+        <div class="col-md-8">
+            <div class="panel panel-green">
+                <div class="panel-body" style="background:#5CB85C">
+                    <h1>Strategy Generation</h1>
+                    <div style="padding-top:30px" class="panel-body">
+                        <main>
+                            <div >
+                                <div align="middle">
+                                    <img src="../../images/map.png" alt="graph" width=70% height=70% />
+                                </div>
+                                <div class="innertube">
+                                    
+                                    <h2>Available options</h2>
+                                    <select>
+                                        <option value="1">Stock 1</option>
+                                        <option value="2">Stock 2</option>
+                                        <option value="3">Stock 3</option>
+                                        <option value="4">Stock 4</option>
+                                        <option value="5">Stock 5</option>
+                                        <option value="6">Stock 6</option>
+                                        <option value="7">Stock 7</option>
+                                    </select>
+                                    <br>
+                                    <h2>Amount:</h2>
+                                    <div class="nowrap">
+                                        <h6>£1000</h6>
+                                        <input id="slider" type="range" min="1000" max="100000" step="1000" value="10000"
+                                               onchange="updateTextInput(this.value);"/>
+                                        <h6>£100000</h6>
+                                    </div>
+                                    <br>
+                                    <span class="currency-input">£ <input type="text" id="textInput" value="10000"></span>
+                                    <br><br>
+                                    <button>Buy</button>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
                 </div>
-                <br>
-                <span class="currency-input">£ <input type="text" id="textInput" value="10000"></span>
-                <br><br>
-                <button>Buy</button>
             </div>
         </div>
-    </main>
+        <div class="col-md-4" style="height=100%">
+            <div class="panel panel-green">
+                <div class="panel-body" style="background:#5CB85C">
+                    <h2><u>Filters</u></h2>
+                    <div style="padding-top:30px" class="panel-body">
+                            <div class="innertube">
 
-    <nav id="nav">
-        <div class="innertube">
-            <h2><u>Filters</u></h2>
-            <select>
-                <option value="1">Economic Sector 1</option>
-                <option value="2">Economic Sector 2</option>
-                <option value="3">Economic Sector 3</option>
-            </select>
+                                <select>
+                                    <option value="1">Economic Sector 1</option>
+                                    <option value="2">Economic Sector 2</option>
+                                    <option value="3">Economic Sector 3</option>
+                                </select>
 
-            <br><br>
+                                <br>
 
-            <h2><u>Current choice</u></h2>
-            <h5 class="choice">example</h5>
-            <div class="nowrap">
-                <h4>Technical Risk: </h4>
-                <p>XX%</p>
-            </div>
-            <br>
-            <div class="nowrap">
-                <h4>Physical Risk: </h4>
-                <p>XX%</p>
+                                <h2><u>Current choice</u></h2>
+                                <h5 class="choice">example</h5>
+                                <div class="nowrap">
+                                    <h4>Technical Risk: </h4>
+                                    <p>XX%</p>
+                                </div>
+                                <br>
+                                <div class="nowrap">
+                                    <h4>Physical Risk: </h4>
+                                    <p>XX%</p>
+                                </div>
+                            </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
+    
+    
+    
+
+    
 
 </div>
 </body>
