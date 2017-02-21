@@ -60,6 +60,10 @@ main {
     margin-right: 230px; /* Same as 'nav' width */
 }
 
+#good {
+    background: green;
+}
+
 h2 {
     color: white;
 }

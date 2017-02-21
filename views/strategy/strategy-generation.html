@@ -4,36 +4,36 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
     <title>Strategy management</title>
+
+    <!-- css -->
     <link rel="stylesheet" type="text/css" href="../../style/strategy.css">
+    <!-- javascript -->
     <script src="../../js/range-slider-value.js"></script>
+
+    <!-- Bootsrap Theme -->
     <!-- Bootstrap -->
     <link href="../../public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../public/dist/css/sb-admin-2.css" rel="stylesheet">
     <!-- myCSS -->
     <link rel="stylesheet" type="text/css" href="../../style/login.css">
-    
-    
-    
+
     <style>
-        p,h1,h2,h3,h4,h5 {
+        p, h1, h2, h3, h4, h5 {
             color: white;
         }
     </style>
 </head>
 
-
-
-
-
-<!----------------------------------------------------------------- body ------------------------------------------------------------------->
-
 <body style="background-color:#193919">
-    
-    <!----------------------------------------------------------------- header ------------------------------------------------------------------->
-    <div class="topBar" id="topBar">
+
+<!----------------------------------------------------------------- header ------------------------------------------------------------------->
+
+<div class="topBar" id="topBar">
     <ul>
-        <li><img src="../../images/logo.png" alt="Logo" width="172px" height="40px" align="middle" vspace="5" hspace="15"/>
+        <li><img src="../../images/logo.png" alt="Logo" width="109px" height="40px" align="middle" vspace="5"
+                 hspace="15"/>
         </li>
         <li>
             <button class="x" id="rcorners1" onclick="location.href='../../index.html'">Home</button>
@@ -50,10 +50,10 @@
         </li>
     </ul>
 </div>
-    <!----------------------------------------------------------------- header ------------------------------------------------------------------->
-    
-<div id="wrapper">
 
+<!----------------------------------------------------------------- body ------------------------------------------------------------------->
+
+<div id="wrapper">
     <div class="row" style="width: 95%;
                                 float: left;
                                 margin: 70px 0 15px 15px;">
@@ -63,12 +63,11 @@
                     <h1>Strategy Generation</h1>
                     <div style="padding-top:30px" class="panel-body">
                         <main>
-                            <div >
+                            <div>
                                 <div align="middle">
-                                    <img src="../../images/map.png" alt="graph" width=70% height=70% />
+                                    <img src="../../images/map.png" alt="graph" width=70% height=70%/>
                                 </div>
                                 <div class="innertube">
-                                    
                                     <h2>Available options</h2>
                                     <select>
                                         <option value="1">Stock 1</option>
@@ -83,12 +82,14 @@
                                     <h2>Amount:</h2>
                                     <div class="nowrap">
                                         <h6>£1000</h6>
-                                        <input id="slider" type="range" min="1000" max="100000" step="1000" value="10000"
+                                        <input id="slider" type="range" min="1000" max="100000" step="1000"
+                                               value="10000"
                                                onchange="updateTextInput(this.value);"/>
                                         <h6>£100000</h6>
                                     </div>
                                     <br>
-                                    <span class="currency-input">£ <input type="text" id="textInput" value="10000"></span>
+                                    <span class="currency-input">£ <input type="text" id="textInput"
+                                                                          value="10000"></span>
                                     <br><br>
                                     <button>Buy</button>
                                 </div>
@@ -103,39 +104,31 @@
                 <div class="panel-body" style="background:#5CB85C">
                     <h2><u>Filters</u></h2>
                     <div style="padding-top:30px" class="panel-body">
-                            <div class="innertube">
+                        <div class="innertube">
 
-                                <select>
-                                    <option value="1">Economic Sector 1</option>
-                                    <option value="2">Economic Sector 2</option>
-                                    <option value="3">Economic Sector 3</option>
-                                </select>
-
-                                <br>
-
-                                <h2><u>Current choice</u></h2>
-                                <h5 class="choice">example</h5>
-                                <div class="nowrap">
-                                    <h4>Technical Risk: </h4>
-                                    <p>XX%</p>
-                                </div>
-                                <br>
-                                <div class="nowrap">
-                                    <h4>Physical Risk: </h4>
-                                    <p>XX%</p>
-                                </div>
+                            <select>
+                                <option value="1">Economic Sector 1</option>
+                                <option value="2">Economic Sector 2</option>
+                                <option value="3">Economic Sector 3</option>
+                            </select>
+                            <br>
+                            <h2><u>Current choice</u></h2>
+                            <h5 class="choice">example</h5>
+                            <div class="nowrap">
+                                <h4>Technical Risk: </h4>
+                                <p>XX%</p>
                             </div>
+                            <br>
+                            <div class="nowrap">
+                                <h4>Physical Risk: </h4>
+                                <p>XX%</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    
-    
-
-    
-
 </div>
 </body>
 </html>
