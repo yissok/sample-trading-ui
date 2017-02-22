@@ -69,29 +69,31 @@
                                 </div>
                                 <div class="innertube">
                                     <h2>Available options</h2>
-                                    <select>
-                                        <option value="1">Stock 1</option>
-                                        <option value="2">Stock 2</option>
-                                        <option value="3">Stock 3</option>
-                                        <option value="4">Stock 4</option>
-                                        <option value="5">Stock 5</option>
-                                        <option value="6">Stock 6</option>
-                                        <option value="7">Stock 7</option>
+                                    <select id="stocks" onchange="updateSelectedStock()">
+                                        <option value="GOOGL">Alphabet Inc</option>
+                                        <option value="AAPL">Apple Inc.</option>
+                                        <option value="AMAZN">Amazon</option>
+                                        <option value="DB">Deutsche Bank AG (USA)</option>
+                                        <option value="FB">Facebook Inc.</option>
+                                        <option value="UNG">United States Natural Gas Fund, LP</option>
+                                        <option value="DIS">Walt Disney Co.</option>
                                     </select>
                                     <br>
                                     <h2>Amount:</h2>
+                                    <div style="clear: both"> <!-- keep h6 headings on same line -->
+                                        <h6 style="float: left">£1000</h6>
+                                        <h6 style="float: right">£100000</h6>
+                                    </div>
                                     <div class="nowrap">
-                                        <h6>£1000</h6>
                                         <input id="slider" type="range" min="1000" max="100000" step="1000"
                                                value="10000"
                                                onchange="updateTextInput(this.value);"/>
-                                        <h6>£100000</h6>
                                     </div>
                                     <br>
                                     <span class="currency-input">£ <input type="text" id="textInput"
                                                                           value="10000"></span>
                                     <br><br>
-                                    <button>Buy</button>
+                                    <button onclick="buttonBuyStock()">Buy</button>
                                 </div>
                             </div>
                         </main>
@@ -105,15 +107,17 @@
                     <h2><u>Filters</u></h2>
                     <div style="padding-top:30px" class="panel-body">
                         <div class="innertube">
-
                             <select>
                                 <option value="1">Economic Sector 1</option>
                                 <option value="2">Economic Sector 2</option>
                                 <option value="3">Economic Sector 3</option>
                             </select>
-                            <br>
-                            <h2><u>Current choice</u></h2>
-                            <h5 class="choice">example</h5>
+                        </div>
+                    </div>
+                    <h2><u>Current choice</u></h2>
+                    <div style="padding-top:30px" class="panel-body">
+                        <div class="innertube">
+                            <h5 id="selected-stock" class="choice">GOOGL</h5>
                             <div class="nowrap">
                                 <h4>Technical Risk: </h4>
                                 <p>XX%</p>
@@ -125,6 +129,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
