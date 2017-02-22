@@ -52,6 +52,18 @@ main {
     border: 0;
 }
 
+/* make buy button dynamic */
+.buy-button {
+    float: left;
+}
+.buy-button a {
+    cursor: pointer;
+    position: relative;
+}
+.buy-button a:active{
+    top: 2px;
+}
+
 #wrapper {
     overflow: hidden;
 }

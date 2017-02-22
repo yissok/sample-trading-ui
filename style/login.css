@@ -13,7 +13,6 @@ body {
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 5px;
 }
 
 #rcorners1.x {
@@ -27,7 +26,6 @@ body {
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-    background: #275927;
 }
 
 #rcorners1:hover:not(.active) {
@@ -44,10 +42,11 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
+    display: block;
+    z-index: 100;
 }
 
-ul
-{
+ul {
     list-style-type: none;
 }
 
