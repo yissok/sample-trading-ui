@@ -4,12 +4,13 @@ var img;
 var cs;
 
 var bounds = {};
-bounds.x = 0;
+bounds.x = 50;
 bounds.y = 0;
 bounds.w = 700;
 bounds.h = 500;
 
 var fish = true;
+var draggable = false;
 
 var mx = -1;
 var my = -1;
@@ -25,12 +26,12 @@ var start = 0;
 var width = 1000;
 var max;
 var s = [];
-s[0] = generateSeries();
-s[1] = generateSeries();
-s[2] = generateSeries();
-s[3] = generateSeries();
-s[4] = generateSeries();
-s[5] = generateSeries();
+s[0] = generateSeries([3000]);
+s[1] = generateSeries([3000,1]);
+s[2] = generateSeries([3000]);
+s[3] = generateSeries([3000]);
+s[4] = generateSeries([3000]);
+s[5] = generateSeries([3000]);
 //all series fill graph
 //all series proportional to absolute values
 //all series proportional to change
@@ -38,16 +39,26 @@ s[5] = generateSeries();
 
 getMax();
 
-function generateSeries() {
+function generateSeries(parameters = [1000/*series length*/, 1/*white noise size*/, 0.025/*bull chance*/, 2/*bull gradient*/, 0.0066666/*bear chance*/, -5/*bear gradient*/]) {
 	var s = {};
-	var noise_mag = 0.5;
-	var noise_delta = 0.1;
 	var sd = [];
-	var sl = 3000;
+	var sl = parameters[0];
 	var max = 0;
 	var noise = 0;
 	var vel = 2;
 	var data = 1;
+	var noise_mag = 0.5;
+	var noise_delta = 0.1;
+	var bullc = parameters[1];
+	var bullm = parameters[2]
+	var bearc = parameters[3]
+	var bearm = parameters[4]
+	if (parameters.length < 2){
+		bullc = 0.025;
+		bullm = 2;
+		bearc = 0.0066666;
+		bearm = -5;
+	}
 	
 	for (var i = 0; i < sl; i++){
 		sd[i] = 1;
@@ -60,8 +71,8 @@ function generateSeries() {
 			if (noise < -data*noise_mag) noise = -data*noise_mag;
 			noise += data*(Math.random()-0.5)*noise_delta;
 		}
-		if (vel == 2 && Math.random() < 0.0066666) vel = -5;
-		else if (vel == -5 && Math.random() < 0.025) vel = 2;
+		if (vel == bullm && Math.random() < bearc) vel = bearm;
+		else if (vel == bearm && Math.random() < bullc) vel = bullm;
 		for (var i = 0; i < sl-1; i++) {
 			sd[i] = sd[i+1];
 		}
@@ -173,11 +184,41 @@ function mmove(e){
 		var y = e.y - canvas.getBoundingClientRect().top - dy;
 		dx = e.x - canvas.getBoundingClientRect().left;
 		dy = e.y - canvas.getBoundingClientRect().top;
-		if (selected == -1){
+		if (!draggable || selected == -1){
 			start = start - x*(width - 1)/canvas.width;
 		} else {
             s[selected].start -= x*(width - 1)/canvas.width;
 		}
+	}
+	
+	
+	var closest = 1000;
+	var cindex = -1;
+	for (var i = 0; i < s.length; i++){
+		for (var j = 0; j < width; j++){
+			var k = j + parseInt(start + s[i].start);
+			if (k >= 0 && k < s[i].length){
+				var ax = getX(i,j);
+				var ay = getY(i,j);
+				var bx = getX(i,j+1);
+				var by = getY(i,j+1);
+				var t = (mx-ax)/(bx-ax);
+				t = t < 0 ? 0 : t > 1 ? 1 : t;
+				var cx = ax + t * (bx-ax);
+				var cy = ay + t * (by-ay);
+				var d = Math.sqrt((cx - mx) * (cx - mx) + (cy - my) * (cy - my));
+				if ((cindex == selected && i == selected && d < closest) || (cindex != selected && d < closest) || (-1 == selected && d < closest)){
+					closest = d;
+					cindex = i;
+					hx = cx;
+					hy = cy;
+				}
+			}
+		}
+	}
+	if (closest > 10){
+        hx = -1;
+        hy = -1;
 	}
 	getMax();
 	drawStock();
@@ -196,12 +237,12 @@ function mdown(e){
 			if (k >= 0 && k < s[i].length){
 				var ax = getX(i,j);
 				var ay = getY(i,j);
-				var bx = getX(i,j+1) - ax;
-				var by = getY(i,j+1) - ay;
-				var t = (ax * bx + ay * by - bx * dx - by * dy) / (bx * bx + by * by);
+				var bx = getX(i,j+1);
+				var by = getY(i,j+1);
+				var t = (dx-ax)/(bx-ax);
 				t = t < 0 ? 0 : t > 1 ? 1 : t;
-				var cx = ax + t * bx;
-				var cy = ay + t * by;
+				var cx = ax + t * (bx-ax);
+				var cy = ay + t * (by-ay);
 				var d = Math.sqrt((cx - dx) * (cx - dx) + (cy - dy) * (cy - dy));
 				if (d < closest){
 					closest = d;
@@ -268,10 +309,10 @@ function fishEye(x, y){
 	return s;
 }
 
+window.onresize = function(e){
+};
+
 function drawStock(){
-	canvas.top = -parseInt(cs.getPropertyValue('height'), 10);
-	canvas.width = parseInt(cs.getPropertyValue('width'), 10);
-	canvas.height = parseInt(cs.getPropertyValue('height'), 10);
 	bounds.h = canvas.height - 2 * bounds.y;
 	bounds.w = canvas.width - 2 * bounds.x;
 	var unit = s[0].first*bounds.h*maxmag/s[0].first;
@@ -347,7 +388,7 @@ function drawStock(){
 		c.stroke();
 	}
 	c.strokeStyle = "#000";
-	c.linewidth = 2;
+	c.lineWidth = 2;
 	c.beginPath();
 	for (var k = 0; k < bounds.h/5; k++){
 		var x = parseInt(bounds.w/8+bounds.x);
@@ -358,17 +399,75 @@ function drawStock(){
 		c.lineTo(p2.x, p2.y);
 	}
 	c.stroke();
+	
+	
+	
 	c.fillStyle = "#ffffff";
 	c.fillRect(0, 0, canvas.width, bounds.y);
 	c.fillRect(0, bounds.y + bounds.h, canvas.width, bounds.y);
 	c.fillRect(0, 0, bounds.x, canvas.height);
 	c.fillRect(bounds.x + bounds.w, 0, bounds.x, canvas.height);
 	
+	
+	c.font = "14px Tahoma";
+	c.fillStyle = "#000";
+	for (var i = 0; i < scale; i++){
+		if (scale < 2.5){
+			for (var j = 0; j < 10; j++){
+				var x = bounds.x - 40;
+				var y = bounds.h - unit * (i+j/10.0) + bounds.y;
+				var p = fishEye(x,y);
+				var n = 100*i+10*j-100;
+				n=n<0?n+"":"+"+n;
+				c.fillText(n+"%", p.x, p.y);
+			}
+		}
+		else if (scale < 10){
+			for (var j = 0; j < 10; j+=5){
+			var x = bounds.x - 40;
+				var y = bounds.h - unit * (i+j/10.0) + bounds.y;
+				var p = fishEye(x,y);
+				var n = 100*i+10*j-100;
+				n=n<0?n+"":"+"+n;
+				c.fillText(n+"%", p.x, p.y);
+			}
+		}
+		else {
+			var x = bounds.x - 40;
+			var y = bounds.h - unit * i + bounds.y;
+			var p = fishEye(x,y);
+			var n = 100*i-100;
+			n=n<0?n+"":"+"+n;
+			c.fillText(n+"%", p.x, p.y);
+		}
+	}
+	
+	if (hx != -1){
+		var p = fishEye(hx,hy);
+		var v = (bounds.h + bounds.y - hy) / unit;
+		var n = (v - 1) * 100+"";
+		n = n.substring(0, 5);
+		n = n.endsWith(".")?n.substring(0,n.length-1):n;
+		n = n.includes(".")?n:(parseInt((v - 1) * 100)+"");
+		n=n<0?n+"":"+"+n;
+		c.fillStyle="#00f";
+		c.beginPath();
+		c.arc(p.x, p.y, 5, 0, 2*Math.PI);
+		c.fill();
+		c.fillStyle="#000";
+		c.fillText(n+"%", p.x+7, p.y+4);
+	}
 }
 
 function clock(){
 	drawStock();
 }
+
+window.onresize = function(e){
+	canvas.top = -parseInt(cs.getPropertyValue('height'), 10);
+	canvas.width = parseInt(cs.getPropertyValue('width'), 10);
+	canvas.height = parseInt(cs.getPropertyValue('height'), 10);
+};
 
 function begin(){
 	img = document.getElementById("canimg");
@@ -382,6 +481,7 @@ function begin(){
 	
 	canvas.addEventListener('mousewheel',function(event){
 		mwheel(event);
+		event.returnValue = false;
 		return false; 
 	}, false);
 	
