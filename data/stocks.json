@@ -1,0 +1,55 @@
+{
+  "stock": [
+    {
+      "id": "01",
+      "name": "Alphabet Inc",
+      "symbol": "GOOGL",
+      "technical-risk": "10",
+      "physical-risk": "25",
+      "lat": "40",
+      "lng": "16"
+    },
+    {
+      "id": "02",
+      "name": "Apple Inc",
+      "symbol": "AAPL",
+      "technical-risk": "50",
+      "physical-risk": "30"
+    },
+    {
+      "id": "03",
+      "name": "Amazon",
+      "symbol": "AMAZN",
+      "technical-risk": "20",
+      "physical-risk": "44"
+    },
+    {
+      "id": "04",
+      "name": "Deutsche Bank AG (USA)",
+      "symbol": "DB",
+      "technical-risk": "80",
+      "physical-risk": "10"
+    },
+    {
+      "id": "05",
+      "name": "Facebook Inc.",
+      "symbol": "DB",
+      "technical-risk": "80",
+      "physical-risk": "10"
+    },
+    {
+      "id": "06",
+      "name": "United States Natural Gas Fund, LP",
+      "symbol": "UNG",
+      "technical-risk": "22",
+      "physical-risk": "66"
+    },
+    {
+      "id": "07",
+      "name": "Walt Disney Co.",
+      "symbol": "DIS",
+      "technical-risk": "12",
+      "physical-risk": "34"
+    }
+  ]
+}

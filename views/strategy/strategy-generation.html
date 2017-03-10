@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../../style/login.css">
     <!-- javascript -->
     <script src="../../js/range-slider-value.js"></script>
-
+    <script src="../../js/map.js"></script>
     <!-- Bootstrap -->
     <link href="../../public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../public/dist/css/sb-admin-2.css" rel="stylesheet">
@@ -20,6 +20,11 @@
     <style>
         p, h1, h2, h3, h4, h5 {
             color: white;
+        }
+
+        #map {
+            height: 500px;
+            width: 500px;
         }
     </style>
 </head>
@@ -63,7 +68,9 @@
                         <main>
                             <div>
                                 <div align="middle">
-                                    <img src="../../images/map.png" alt="graph" width=70% height=70%/>
+                                    <div id="map"></div>
+                                    <script async defer
+                                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIzFuQDb3CwO7nwhb-_dFCPA2Ccb8JYrY&callback=initMap"></script>
                                 </div>
                                 <div class="innertube">
                                     <h2>Available options</h2>
