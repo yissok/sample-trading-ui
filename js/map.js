@@ -1,10 +1,9 @@
 /**
  * Created by adam on 10/03/2017.
  */
-// This example creates circles on the map, representing populations in North
-    // America.
+// This example creates circles on the map, representing populations in North America.
 
-    // First, create an object containing LatLng and population for each city.
+//First, create an object containing LatLng and population for each city.
 var citymap = {
         chicago: {
             center: {lat: 41.878, lng: -87.629},
