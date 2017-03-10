@@ -1,0 +1,23 @@
+{
+	"pins": [{
+		"lat": "40",
+		"lng": "16",
+		"desc": "primo pin"
+	}, {
+		"lat": "49",
+		"lng": "11",
+		"desc": "secondo pin"
+	}, {
+		"lat": "19",
+		"lng": "17",
+		"desc": "terzo pin"
+	}, {
+		"lat": "78",
+		"lng": "13",
+		"desc": "quarto pin"
+	}, {
+		"lat": "109",
+		"lng": "13",
+		"desc": "quinto forse pin"
+	}]
+}
