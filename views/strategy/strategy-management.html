@@ -18,6 +18,10 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="../../images/favicon.jpg">
+    
+    <!-- Popup -->
+    <script src="../../js/jqPopup.js"></script>
+    <script src="../../js/bsPopup.js"></script>
 
 </head>
 
@@ -51,6 +55,28 @@
 </div>
 
 <!----------------------------------------------------------------- body ------------------------------------------------------------------->
+
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="background:#95a3d0">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modify Strategy</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+    
 <div id="wrapper">
     <div class="row" style="width: 95%;
                                 float: left;
@@ -61,42 +87,42 @@
                     <h1>My Strategies</h1>
                     <div class="panel-body">
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-success">
+                            <a href="#" class="list-group-item list-group-item-success" data-toggle="modal" data-target="#myModal">
                                 <i class="fa fa-comment fa-fw"></i> £17.22 - AAPL
                                 <span class="pull-right text-muted small"><em>+1.28%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-warning">
+                            <a href="#" class="list-group-item list-group-item-warning" data-toggle="modal" data-target="#myModal">
                                 <i class="fa fa-comment fa-fw"></i> £65.74 - GOOG
                                 <span class="pull-right text-muted small"><em>+0.08%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-danger">
+                            <a href="#" class="list-group-item list-group-item-danger" data-toggle="modal" data-target="#myModal">
                                 <i class="fa fa-comment fa-fw"></i> £23.63 - AMZN
                                 <span class="pull-right text-muted small"><em>-3.28%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-success">
+                            <a href="#" class="list-group-item list-group-item-success" data-toggle="modal" data-target="#myModal">
                                 <i class="fa fa-comment fa-fw"></i> £98.96 - FTSE
                                 <span class="pull-right text-muted small"><em>+1.50%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-warning">
+                            <a href="#" class="list-group-item list-group-item-warning" data-toggle="modal" data-target="#myModal">
                                 <i class="fa fa-comment fa-fw"></i> £32.45 - NIKE
                                 <span class="pull-right text-muted small"><em>-0.10%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-success">
+                            <a href="#" class="list-group-item list-group-item-success" data-toggle="modal" data-target="#myModal">
                                 <i class="fa fa-comment fa-fw"></i> £12.76 - IBM
                                 <span class="pull-right text-muted small"><em>+1.58%
                                         <i class="glyphicon glyphicon-info-sign"></i>
