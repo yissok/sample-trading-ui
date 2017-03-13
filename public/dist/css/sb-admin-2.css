@@ -113,7 +113,7 @@ body {
   color: #428bca;
 }
 .btn-success.btn-outline {
-  color: #5cb85c;
+  color: #7184c1;
 }
 .btn-info.btn-outline {
   color: #5bc0de;
@@ -230,18 +230,18 @@ table.dataTable thead .sorting:after {
   font-size: 40px;
 }
 .panel-green {
-  border-color: #5cb85c;
+  border-color: #7184c1;
 }
 .panel-green > .panel-heading {
-  border-color: #5cb85c;
+  border-color: #7184c1;
   color: white;
-  background-color: #5cb85c;
+  background-color: #7184c1;
 }
 .panel-green > a {
-  color: #5cb85c;
+  color: #7184c1;
 }
 .panel-green > a:hover {
-  color: #3d8b3d;
+  color: #7184c1;
 }
 .panel-red {
   border-color: #d9534f;
@@ -372,7 +372,7 @@ table.dataTable thead .sorting:after {
   background-color: #2e6da4 !important;
 }
 .timeline-badge.success {
-  background-color: #3f903f !important;
+  background-color: #7184c1 !important;
 }
 .timeline-badge.warning {
   background-color: #f0ad4e !important;
