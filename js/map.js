@@ -17,9 +17,9 @@ function initMap() {
         }
         // Create the map.
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 1,
-            center: {lat: 0, lng: 0},
-            mapTypeId: 'terrain'
+            zoom: 3,
+            center: {lat: 41.850033, lng: -87.6500523},
+            mapTypeId: 'satellite'
         });
         // Construct the circle for each value in citymap.
         // Note: We scale the area of the circle based on the population.
