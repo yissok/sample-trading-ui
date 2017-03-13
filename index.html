@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
+<!----------------------------------------------------------------- HEAD ------------------------------------------------------------------->
+
 <head>
     <title>Trade4me</title>
 
@@ -10,25 +12,21 @@
 
     <!-- myCSS -->
     <link rel="stylesheet" type="text/css" href="style/login.css">
+    <link rel="stylesheet" type="text/css" href="style/sticky-footer.css">
 
     <!-- JS -->
-	<script type="text/javascript" src="js/chart.js"></script>
+    <script type="text/javascript" src="js/chart.js"></script>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.jpg">
 </head>
 
+<!----------------------------------------------------------------- BODY ------------------------------------------------------------------->
+
 <body style="background-color:#edf0f7">
 
-<!--
-
-#7184c1 topbar
-#edf0f7 background
-#95a3d095a3d0 active top button and panels
-
---------------------------------------------------------------- header ------------------------------------------------------------------->
-
-<div class="topBar" id="topBar" >
+<!--------------------------------------------------------------- header ------------------------------------------------------------------->
+<div class="topBar" id="topBar">
     <ul>
         <li><img src="images/logo.png" alt="Logo" width="109px" height="40px" align="middle" vspace="5" hspace="15"/>
         </li>
@@ -36,10 +34,13 @@
             <button class="x" id="rcorners1" onclick="location.href = 'index.html'">Home</button>
         </li>
         <li>
-            <button class="x" id="rcorners1" onclick="location.href = 'views/strategy/strategy-generation.html'">New strategy</button>
+            <button class="x" id="rcorners1" onclick="location.href = 'views/strategy/strategy-generation.html'">New
+                strategy
+            </button>
         </li>
         <li>
-            <button class="x" id="rcorners1" onclick="location.href = 'views/strategy/strategy-management.html'">Manage strategy
+            <button class="x" id="rcorners1" onclick="location.href = 'views/strategy/strategy-management.html'">Manage
+                strategy
             </button>
         </li>
         <li style="float:right">
@@ -49,7 +50,6 @@
 </div>
 
 <!----------------------------------------------------------------- body ------------------------------------------------------------------->
-
 <div id="wrapper" style="width: 100%;">
     <div class="row" style="width: 95%;
                                 float: left;
@@ -59,8 +59,9 @@
                 <div class="panel-body" style="background:#95a3d0">
                     Overview
                     <div style="padding-top:30px" class="panel-body">
-						<canvas id="chart" width="800" height="600" align="middle" style="position: absolute;"></canvas>
-                        <img id="canimg" src="images/stock-graph.gif" alt="graph" width=100% height=100% align="middle"/>
+                        <canvas id="chart" width="800" height="600" align="middle" style="position: absolute;"></canvas>
+                        <img id="canimg" src="images/stock-graph.gif" alt="graph" width=100% height=100%
+                             align="middle"/>
                     </div>
                 </div>
             </div>
@@ -107,26 +108,36 @@
                                 margin: 0 0 15px 15px;">
         <!--var width = document.getElementById('foo').offsetHeight;-->
         <div class=" panel" style="width: 100%;">
-            <p>This version of the website was made for testing purposes, some parts of the content have been crafted with help of 3rd party software. Any data contained in the website is for testing purposes only.</p>
-        </div>
-    </div>
-    <div class="row" style="width: 100%;
-                                float: left;
-                                margin: 0 0 0 0;">
-        <!--var width = document.getElementById('foo').offsetHeight;-->
-        <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. -->
-        <div class=" panel" style="background:#000000">
-            <font color="white">HCI group: Brandon Hewer, Adam Jaamour, Andrea Lissak, Mike Maddocks, Yuka Minamizaki.
-                <br>
-                © Copyright Trade4Me
-                <br>
-            </font>
-            <font color="black">
-                a
-                <hr>
-            </font>
+            <p>This version of the website was made for testing purposes, some parts of the content have been crafted
+                with help of 3rd party software. Any data contained in the website is for testing purposes only.</p>
         </div>
     </div>
 </div>
+
+<!--------------------------------------------------------------- footer ------------------------------------------------------------------->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <p class="footer-links">
+                <a href="index.html" style="color: #0c0c0c">Home</a>
+                ·
+                <a href="views/strategy/strategy-generation.html" style="color: #0c0c0c">Generate Strategy</a>
+                ·
+                <a href="views/strategy/strategy-management.html" style="color: #0c0c0c">Manage Strategy</a>
+                ·
+                <a href="views/account/login.html" style="color: #0c0c0c">Login</a>
+                ·
+                <a href="views/account/register.html" style="color: #0c0c0c">Register</a>
+            </p>
+            <br>
+            <p>
+                Trade4Me &copy; 2017
+                ·
+                <a href="views/misc/terms-privacy.html" style="color: #0c0c0c">Terms & Privacy</a>
+            </p>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

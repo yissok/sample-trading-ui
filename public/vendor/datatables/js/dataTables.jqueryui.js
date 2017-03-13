@@ -78,7 +78,7 @@ $.extend( DataTable.ext.classes, {
 	"sScrollHead": "dataTables_scrollHead "+"ui-state-default",
 	"sScrollFoot": "dataTables_scrollFoot "+"ui-state-default",
 
-	/* Misc */
+	/* misc */
 	"sHeaderTH":  "ui-state-default",
 	"sFooterTH":  "ui-state-default"
 } );
