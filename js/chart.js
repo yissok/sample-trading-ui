@@ -2,16 +2,21 @@ var c;
 var canvas;
 var img;
 var cs;
+var scale = 1;
+
+var buttons = [];
 
 var bounds = {};
-bounds.x = 50;
+bounds.x = 200;
 bounds.y = 0;
-bounds.w = 700;
+bounds.x2= 140;
 bounds.h = 500;
 
 var fish = true;
 var draggable = false;
 
+var hx = -1;
+var hy = -1;
 var mx = -1;
 var my = -1;
 var selected = -1;
@@ -22,22 +27,28 @@ var dx = 0;
 var dy = 0;
 var maxmag = 1;
 
-var start = 0;
-var width = 1000;
+var start = 400;
+var width = 200;
 var max;
 var s = [];
-s[0] = generateSeries([3000]);
-s[1] = generateSeries([3000,1]);
-s[2] = generateSeries([3000]);
-s[3] = generateSeries([3000]);
-s[4] = generateSeries([3000]);
-s[5] = generateSeries([3000]);
+var strats = [];
+strats[0] = generateSeries([3000]);
+strats[1] = generateSeries([3000]);
+strats[2] = generateSeries([3000]);
+strats[3] = generateSeries([3000]);
+strats[4] = generateSeries([3000]);
+strats[5] = generateSeries([3000]);
 //all series fill graph
 //all series proportional to absolute values
 //all series proportional to change
 //all series at absolute values
 
 getMax();
+
+buttons[0] = {x:20, y:20, w: 100, h:20, a:function(e){
+	series(e);
+}};
+buttons[0].list=false;
 
 function generateSeries(parameters = [1000/*series length*/, 1/*white noise size*/, 0.025/*bull chance*/, 2/*bull gradient*/, 0.0066666/*bear chance*/, -5/*bear gradient*/]) {
 	var s = {};
@@ -87,7 +98,8 @@ function generateSeries(parameters = [1000/*series length*/, 1/*white noise size
 	for (var i = 0; i < sl; i++){
 		changeStock();
 	}
-	
+	var al = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	s.name = al.charAt(parseInt(Math.random()*26))+al.charAt(parseInt(Math.random()*26))+al.charAt(parseInt(Math.random()*26));
 	s.length = sl;
 	s.start = 0;
 	s.data = sd;
@@ -98,36 +110,36 @@ function generateSeries(parameters = [1000/*series length*/, 1/*white noise size
 }
 
 function chooseColour(){
-	if (s.length == 0) return Math.random();
-	if (s.length == 1){
-		var col = s[0].colour + 0.25 + Math.random()*0.5;
+	if (strats.length == 0) return Math.random();
+	if (strats.length == 1){
+		var col = strats[0].colour + 0.25 + Math.random()*0.5;
 		if (col >= 1) col--;
 		return col;
 	}
-	for (var i = 0; i < s.length; i++){
-		for (var j = i + 1; j < s.length; j++){
-			if (s[i].colour > s[j].colour){
-				var o = s[i];
-				s[i] = s[j];
-				s[j] = o;
+	for (var i = 0; i < strats.length; i++){
+		for (var j = i + 1; j < strats.length; j++){
+			if (strats[i].colour > strats[j].colour){
+				var o = strats[i];
+				strats[i] = strats[j];
+				strats[j] = o;
 			}
 		}
 	}
 	var bgap = 0;
 	var j = -1;
-	for (var i = 0; i < s.length - 1; i++){
-		var tgap = s[i+1].colour-s[i].colour;
+	for (var i = 0; i < strats.length - 1; i++){
+		var tgap = strats[i+1].colour-strats[i].colour;
 		if (tgap > bgap){
 			bgap = tgap
 			j = i;
 		}
 	}
-	var tgap = s[0].colour - (s[s.length-1].colour - 1);
+	var tgap = strats[0].colour - (strats[strats.length-1].colour - 1);
 	if (tgap > bgap){
 		bgap = tgap
-		j = s.length-1;
+		j = strats.length-1;
 	}
-	var col = s[j].colour + bgap / 2;
+	var col = strats[j].colour + bgap / 2;
 	if (col >= 1) col--;
 	return col;
 }
@@ -163,11 +175,12 @@ function getMax(){
 			maxmag = s[i].max/s[i].first;
 		}
 	}
+	if (maxmag == 0) maxmag = 2;
 	maxmag = 1 / maxmag;
 }
 
 function getX(i, j){
-	return parseInt(j*bounds.w/(width - 1))+bounds.x;
+	return parseInt(j*(canvas.width - bounds.x - bounds.x2)/(width - 1))+bounds.x;
 }
 
 function getY(i, j){
@@ -229,6 +242,30 @@ function mdown(e){
     
 	dx = e.x - canvas.getBoundingClientRect().left;
 	dy = e.y - canvas.getBoundingClientRect().top;
+	if (dx  >= 20 && dy >= 20 && dx <= 120 && dy <= 40){
+		buttons[0].list = !buttons[0].list;
+	} else if (buttons[0].list && (dx  >= 20 && dy >= 40 && dx <= 120 && dy <= 40+20*strats.length)){
+		var k = parseInt((dy-40)/20);
+		var exists = false;
+		var series = strats[k];
+		for (var i = 0; i < s.length; i++){
+			exists=series==s[i]?true:exists;
+		}
+		if (!exists){
+			s[s.length]=series;
+		}
+		buttons[0].list=false;
+	} else {
+		for (var i = 0; i < s.length; i++){
+			if (dx >= canvas.width - bounds.x2 + 20 && dy >= 20+30*i && dx <= canvas.width - bounds.x2 + 120 && dy <= 40+30*i){
+				for (var j = i + 1; j < s.length; j++){
+					s[j-1] = s[j];
+				}
+				s.length--;
+			}
+		}
+		buttons[0].list=false;
+	}
 	var closest = 1000;
 	var cindex = -1;
 	for (var i = 0; i < s.length; i++){
@@ -281,6 +318,7 @@ function mout(e){
 
 function mwheel(e){
 	var delta = parseInt(width * (e.wheelDelta * (-0.0002)));
+	if (delta > 0 && scale > 30) return;
 	start = start - delta;
 	width = width + 2 * delta;
 	getMax();
@@ -288,7 +326,7 @@ function mwheel(e){
 }
 
 function fishEye(x, y){
-	if (mx < bounds.x || mx > bounds.x + bounds.w || my < bounds.y || my > bounds.y + bounds.h || !fish){
+	if (mx < bounds.x || mx > bounds.x + canvas.width - bounds.x - bounds.x2 || my < bounds.y || my > bounds.y + bounds.h || !fish){
 		var s = {};
 		s.x = x;
 		s.y = y;
@@ -314,14 +352,13 @@ window.onresize = function(e){
 
 function drawStock(){
 	bounds.h = canvas.height - 2 * bounds.y;
-	bounds.w = canvas.width - 2 * bounds.x;
-	var unit = s[0].first*bounds.h*maxmag/s[0].first;
+	var unit = bounds.h*maxmag;
 	c.clearRect(0, 0, canvas.width, canvas.height);
 	c.fillStyle = "#ddffdd";
-	c.fillRect(bounds.x, bounds.y, bounds.w, bounds.h-unit);
+	c.fillRect(bounds.x, bounds.y, canvas.width - bounds.x - bounds.x2, bounds.h-unit);
 	c.fillStyle = "#ffe9e9";
-	c.fillRect(bounds.x, bounds.h-unit+bounds.y, bounds.w, unit);
-	var scale = bounds.h / unit;
+	c.fillRect(bounds.x, bounds.h-unit+bounds.y, canvas.width - bounds.x - bounds.x2, unit);
+	scale = bounds.h / unit;
 	c.lineWidth = 1;
 	c.strokeStyle = "#000";
 	for (var i = 0; i < scale; i++){
@@ -331,7 +368,7 @@ function drawStock(){
 					c.lineWidth = 1;
 					c.strokeStyle = j==0?"#000":j==5?"#444":"#999";
 					c.beginPath();
-					for (var k = 0; k < bounds.w/5; k++){
+					for (var k = 0; k < (canvas.width - bounds.x - bounds.x2)/5; k++){
 						var x = bounds.x + k * 5;
 						var y = bounds.h - unit * (i+j/10.0) + bounds.y;
 						var p1 = fishEye(x, y);
@@ -347,7 +384,7 @@ function drawStock(){
 					c.lineWidth = 1;
 					c.strokeStyle = i%10==0?"#000":i%10==5?"#444":"#999";
 					c.beginPath();
-					for (var k = 0; k < bounds.w/5; k++){
+					for (var k = 0; k < (canvas.width - bounds.x - bounds.x2)/5; k++){
 						var x = bounds.x + k * 5;
 						var y = bounds.h - unit * i + bounds.y;
 						var p1 = fishEye(x, y);
@@ -365,13 +402,13 @@ function drawStock(){
 			c.strokeStyle = "#000fff";
 		} else {
 			c.lineWidth = 1.5;
-			c.strokeStyle = "hsl("+parseInt(0+s[i].colour*120)+", 100%, 40%)";;
+			c.strokeStyle = "hsl("+parseInt(0+s[i].colour*120)+", 100%, 40%)";
 		}
 		c.beginPath();
 		var j = 0;
 		var k = j + parseInt(start + s[i].start);
 		for (var l = 0; l < s[i].data.length; l++){
-			if (parseInt((l - parseInt(start + s[i].start))*bounds.w/(width - 1)) <= 0){
+			if (parseInt((l - parseInt(start + s[i].start))*(canvas.width - bounds.x - bounds.x2)/(width - 1)) <= 0){
 				j = l - parseInt(start + s[i].start);
 				k = l;
 			}
@@ -391,7 +428,7 @@ function drawStock(){
 	c.lineWidth = 2;
 	c.beginPath();
 	for (var k = 0; k < bounds.h/5; k++){
-		var x = parseInt(bounds.w/8+bounds.x);
+		var x = parseInt((canvas.width - bounds.x - bounds.x2)/8+bounds.x);
 		var y = bounds.y + 5 * k;
 		var p1 = fishEye(x, y);
 		var p2 = fishEye(x, y+5);
@@ -402,11 +439,11 @@ function drawStock(){
 	
 	
 	
-	c.fillStyle = "#ffffff";
+	c.fillStyle = "#95a3d0";
 	c.fillRect(0, 0, canvas.width, bounds.y);
 	c.fillRect(0, bounds.y + bounds.h, canvas.width, bounds.y);
 	c.fillRect(0, 0, bounds.x, canvas.height);
-	c.fillRect(bounds.x + bounds.w, 0, bounds.x, canvas.height);
+	c.fillRect(canvas.width - bounds.x2, 0, bounds.x2, canvas.height);
 	
 	
 	c.font = "14px Tahoma";
@@ -414,31 +451,28 @@ function drawStock(){
 	for (var i = 0; i < scale; i++){
 		if (scale < 2.5){
 			for (var j = 0; j < 10; j++){
-				var x = bounds.x - 40;
+				var x = bounds.x - 60;
 				var y = bounds.h - unit * (i+j/10.0) + bounds.y;
-				var p = fishEye(x,y);
 				var n = 100*i+10*j-100;
 				n=n<0?n+"":"+"+n;
-				c.fillText(n+"%", p.x, p.y);
+				c.fillText(n+"%", x, y);
 			}
 		}
 		else if (scale < 10){
 			for (var j = 0; j < 10; j+=5){
-			var x = bounds.x - 40;
+				var x = bounds.x - 60;
 				var y = bounds.h - unit * (i+j/10.0) + bounds.y;
-				var p = fishEye(x,y);
 				var n = 100*i+10*j-100;
 				n=n<0?n+"":"+"+n;
-				c.fillText(n+"%", p.x, p.y);
+				c.fillText(n+"%", x, y);
 			}
 		}
 		else {
-			var x = bounds.x - 40;
+			var x = bounds.x - 60;
 			var y = bounds.h - unit * i + bounds.y;
-			var p = fishEye(x,y);
 			var n = 100*i-100;
 			n=n<0?n+"":"+"+n;
-			c.fillText(n+"%", p.x, p.y);
+			c.fillText(n+"%", x, y);
 		}
 	}
 	
@@ -456,6 +490,27 @@ function drawStock(){
 		c.fill();
 		c.fillStyle="#000";
 		c.fillText(n+"%", p.x+7, p.y+4);
+	}
+	
+	c.fillStyle = "#fff";
+	c.fillRect(20,20,100,20);
+	c.fillStyle = "#000";
+	c.fillText("Add Series", 24,34);
+	
+	for (var i = 0; i < s.length; i++){
+		c.fillStyle = "hsl("+parseInt(0+s[i].colour*120)+", 100%, 40%)";
+		c.fillRect(canvas.width - bounds.x2 + 20, 20+30*i, 100, 20);
+		c.fillStyle = "#000";
+		c.fillText(s[i].name, canvas.width - bounds.x2 + 25, 20+30*i+14);
+	}
+	
+	if (buttons[0].list){
+		for (var i = 0; i < strats.length; i++){
+			c.fillStyle = "#fff";
+			c.fillRect(20, 40+20*i, 100, 20);
+			c.fillStyle = "#000";
+			c.fillText(strats[i].name, 25, 40+20*i+14);
+		}
 	}
 }
 

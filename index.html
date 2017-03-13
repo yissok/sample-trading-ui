@@ -58,50 +58,18 @@
     <div class="row" style="width: 95%;
                                 float: left;
                                 margin: 70px 0 15px 15px;">
-        <div class="col-md-6">
+        <div class="col-md-9">
             <div class="panel panel-green">
                 <div class="panel-body" style="background:#95a3d0">
                     Overview
                     <div style="padding-top:30px" class="panel-body">
-                        <canvas id="chart" width="800" height="600" align="middle" style="position: absolute;"></canvas>
-                        <img id="canimg" src="images/stock-graph.gif" alt="graph" width=100% height=100%
-                             align="middle"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="col-md-3">
-                <div class="panel panel-green">
-                    <div class="panel-body" style="background:#95a3d0">
-                        Best
-                        <div style="padding-top:30px" class="panel-body">
-                            <img src="images/stock-graph.gif" alt="graph" width=70% height=100% align="middle"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="panel panel-green">
-                    <div class="panel-body" style="background:#95a3d0">
-                        Worst
-                        <div style="padding-top:30px" class="panel-body">
-                            <img src="images/stock-graph.gif" alt="graph" width=70% height=100% align="middle"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="panel panel-green">
-                    <div class="panel-body" style="background:#95a3d0">
-                        All
-                        <div align="middle">
-                            <div style="padding-top:30px" class="panel-body">
-                                <img src="images/stock-graph.gif" alt="graph" width=31% height=29% align="middle"/>
-                                <img src="images/stock-graph.gif" alt="graph" width=31% height=29% align="middle"/>
-                                <img src="images/stock-graph.gif" alt="graph" width=31% height=29% align="middle"/>
-                            </div>
-                        </div>
+                        <canvas id="chart" width="800" height="600" align="middle" style="position: absolute;" style="z-index: 9001;" ></canvas>
+                        <div style="z-index: 1;" id="canimg">
+							<div><img src="images/line.png" border="0" style="margin:0px;"></img></div>
+							<div><img src="images/line.png" border="0" style="margin:0px;"></img></div>
+							<div><img src="images/line.png" border="0" style="margin:0px;"></img></div>
+							<div><img src="images/line.png" border="0" style="margin:0px;"></img></div>
+						</div>
                     </div>
                 </div>
             </div>
