@@ -5,6 +5,9 @@ var pinLat = [];
 var pinLng = [];
 
 function initMap() {
+    
+    
+    
     $.getJSON("myPins.json", function (json) {
         var pinDesc = new Array()
         for (i = 0; i < 3; i++)
@@ -17,6 +20,8 @@ function initMap() {
         }
         // Create the map.
         var map = new google.maps.Map(document.getElementById('map'), {
+            
+    scrollwheel: false,
             zoom: 3,
             center: {lat: 41.850033, lng: -87.6500523},
             mapTypeId: 'satellite'

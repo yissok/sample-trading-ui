@@ -67,7 +67,68 @@
           <h4 class="modal-title">Modify Strategy</h4>
         </div>
         <div class="modal-body">
-          <p>Apple INC. <br>£17.22 invested</p>
+            
+            
+            
+            
+            <div class="panel-body" style="background:#95a3d0">
+                    <h2><u>Current choice</u></h2>
+                    <div class="panel-body">
+                        <div class="innertube">
+                            <h5 id="selected-stock" class="choice">GOOGL</h5>
+                            <div class="nowrap">
+                                <h4>Technical Risk: </h4>
+                                <p>XX%</p>
+                            </div>
+                            
+                            <div class="nowrap">
+                                <h4>Physical Risk: </h4>
+                                <p>XX%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <h5>Recommended options</h5>
+                    <div class="styled-select">
+                        <select id="stocks-recommended" onchange="updateSelectedRecommendedStock()">
+                            <option value="GOOGL">Alphabet Inc</option>
+                            <option value="AMAZN">Amazon</option>
+                            <option value="FB">Facebook Inc.</option>
+                        </select>
+                    </div>
+                    <h5>Available options</h5>
+                    <div class="styled-select">
+                        <select id="stocks" onchange="updateSelectedStock()">
+                            <option value="GOOGL">Alphabet Inc</option>
+                            <option value="AAPL">Apple Inc.</option>
+                            <option value="AMAZN">Amazon</option>
+                            <option value="DB">Deutsche Bank AG (USA)</option>
+                            <option value="FB">Facebook Inc.</option>
+                            <option value="UNG">United States Natural Gas Fund, LP</option>
+                            <option value="DIS">Walt Disney Co.</option>
+                        </select>
+                    </div>
+                    <hr>
+                    <h5>Amount:</h5>
+                    <div style="clear: both"> <!-- keep h6 headings on same line -->
+                        <h4 style="float: left">£1000</h4>
+                        <h4 style="float: right">£100000</h4>
+                    </div>
+                    <div class="nowrap">
+                        <input id="slider" type="range" min="1000" max="100000" step="1000"
+                               value="10000"
+                               onchange="updatePrice();"/>
+                    </div>
+                    
+                    <div class="inline">
+                        <h5 style="color: #2c9325; font-size: 30px;" id="textInput">£10000</h5>
+                    </div>
+                    <button class="buy-button" onclick="buttonBuyStock()" style="color: #ffffff;">
+                        <a>Buy</a></button>
+                </div>
+            
+            
+            
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
