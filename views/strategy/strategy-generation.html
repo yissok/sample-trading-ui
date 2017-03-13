@@ -83,15 +83,17 @@
                                 <p id="demo"></p>
                                 <div class="innertube">
                                     <h2>Available options</h2>
-                                    <select id="stocks" onchange="updateSelectedStock()">
-                                        <option value="GOOGL">Alphabet Inc</option>
-                                        <option value="AAPL">Apple Inc.</option>
-                                        <option value="AMAZN">Amazon</option>
-                                        <option value="DB">Deutsche Bank AG (USA)</option>
-                                        <option value="FB">Facebook Inc.</option>
-                                        <option value="UNG">United States Natural Gas Fund, LP</option>
-                                        <option value="DIS">Walt Disney Co.</option>
-                                    </select>
+                                    <div class="styled-select">
+                                        <select id="stocks" onchange="updateSelectedStock()">
+                                            <option value="GOOGL">Alphabet Inc</option>
+                                            <option value="AAPL">Apple Inc.</option>
+                                            <option value="AMAZN">Amazon</option>
+                                            <option value="DB">Deutsche Bank AG (USA)</option>
+                                            <option value="FB">Facebook Inc.</option>
+                                            <option value="UNG">United States Natural Gas Fund, LP</option>
+                                            <option value="DIS">Walt Disney Co.</option>
+                                        </select>
+                                    </div>
                                     <br>
                                     <h2>Amount:</h2>
                                     <div style="clear: both"> <!-- keep h6 headings on same line -->
@@ -107,7 +109,8 @@
                                     <span class="currency-input">£ <input type="text" id="textInput"
                                                                           value="10000"></span>
                                     <br><br>
-                                    <button class="buy-button" onclick="buttonBuyStock()" style="color: #ffffff;"><a>Buy</a></button>
+                                    <button class="buy-button" onclick="buttonBuyStock()" style="color: #ffffff;">
+                                        <a>Buy</a></button>
                                 </div>
                             </div>
                         </main>
@@ -121,11 +124,13 @@
                     <h2><u>Filters</u></h2>
                     <div style="padding-top:30px" class="panel-body">
                         <div class="innertube">
-                            <select>
-                                <option value="1">Economic Sector 1</option>
-                                <option value="2">Economic Sector 2</option>
-                                <option value="3">Economic Sector 3</option>
-                            </select>
+                            <div class="styled-select">
+                                <select>
+                                    <option value="1">Economic Sector 1</option>
+                                    <option value="2">Economic Sector 2</option>
+                                    <option value="3">Economic Sector 3</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <h2><u>Current choice</u></h2>
