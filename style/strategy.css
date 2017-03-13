@@ -52,16 +52,29 @@ main {
     border: 0;
 }
 
-/* make buy button dynamic */
+/* make buy button dynamic on mouse hover and mouse click */
 .buy-button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #FFFFFF;!important;
+    background-color: #7184c1;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
     float: left;
 }
-.buy-button a {
-    cursor: pointer;
-    position: relative;
+.buy-button:hover{
+    background: #58699d;
 }
-.buy-button a:active{
-    top: 2px;
+.buy-button:active{
+    background-color: #58699d;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 #wrapper {
@@ -72,22 +85,3 @@ main {
     margin-right: 230px; /* Same as 'nav' width */
 }
 
-#good {
-    background: green;
-}
-
-h2 {
-    color: white;
-}
-h1,h2,h3,h4,h5 {
-    color: green;
-}
-p {
-    color: green;
-}
-h1 {
-    color: green;
-}
-h1 {
-    color: green;
-}
