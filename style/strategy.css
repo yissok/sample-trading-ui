@@ -2,9 +2,9 @@
  *Stylesheet for the strategy generation and modifications page
  */
 
-body{
-    margin:0;
-    padding:0;
+body {
+    margin: 0;
+    padding: 0;
     font-family: Sans-Serif;
 }
 
@@ -14,6 +14,11 @@ main {
     margin-bottom: -10000px;
     float: left;
     width: 100%;
+}
+
+.inline {
+    display: inline;
+    clear: none;
 }
 
 /* right section of the page (filters + current choice) */
@@ -34,11 +39,11 @@ main {
 /* styling for the current choice*/
 .choice {
     color: red;
-    font-size: 18px;
+    font-size: 30px;
 }
 
 /* keeps heading and paragraph on the same line for physical and technical risks */
-.nowrap p, .nowrap h4, .nowrap h6{
+.nowrap p, .nowrap h4, .nowrap h6 {
     display: inline;
     vertical-align: top;
 }
@@ -57,6 +62,7 @@ main {
 .currency-input {
     border: 1px inset #ccc;
 }
+
 .currency-input input {
     border: 0;
 }
@@ -72,17 +78,19 @@ main {
     text-align: center;
     text-decoration: none;
     outline: none;
-    color: #FFFFFF;!important;
+    color: #FFFFFF;
+!important;
     background-color: #7184c1;
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
-    float: left;
 }
-.buy-button:hover{
+
+.buy-button:hover {
     background: #58699d;
 }
-.buy-button:active{
+
+.buy-button:active {
     background-color: #58699d;
     box-shadow: 0 5px #666;
     transform: translateY(4px);

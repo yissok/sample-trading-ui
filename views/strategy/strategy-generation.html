@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../../style/sticky-footer.css">
 
     <!-- javascript -->
-    <script src="../../js/range-slider-value.js"></script>
+    <script src="../../js/strategy.js"></script>
     <script src="../../js/map.js"></script>
     <script src="../../js/jquery.js"></script>
 
@@ -31,8 +31,8 @@
         }
 
         #map {
-            height: 405px;
-            width: 720px;
+            height: 525px;
+            width: 1000px;
         }
     </style>
 </head>
@@ -68,6 +68,7 @@
     <div class="row" style="width: 95%;
                                 float: left;
                                 margin: 70px 0 15px 15px;">
+        <!-- map -->
         <div class="col-md-8">
             <div class="panel panel-green">
                 <div class="panel-body" style="background:#95a3d0">
@@ -82,35 +83,9 @@
                                 </div>
                                 <p id="demo"></p>
                                 <div class="innertube">
-                                    <h2>Available options</h2>
-                                    <div class="styled-select">
-                                        <select id="stocks" onchange="updateSelectedStock()">
-                                            <option value="GOOGL">Alphabet Inc</option>
-                                            <option value="AAPL">Apple Inc.</option>
-                                            <option value="AMAZN">Amazon</option>
-                                            <option value="DB">Deutsche Bank AG (USA)</option>
-                                            <option value="FB">Facebook Inc.</option>
-                                            <option value="UNG">United States Natural Gas Fund, LP</option>
-                                            <option value="DIS">Walt Disney Co.</option>
-                                        </select>
-                                    </div>
-                                    <br>
-                                    <h2>Amount:</h2>
-                                    <div style="clear: both"> <!-- keep h6 headings on same line -->
-                                        <h4 style="float: left">£1000</h4>
-                                        <h4 style="float: right">£100000</h4>
-                                    </div>
-                                    <div class="nowrap">
-                                        <input id="slider" type="range" min="1000" max="100000" step="1000"
-                                               value="10000"
-                                               onchange="updateTextInput(this.value);"/>
-                                    </div>
-                                    <br>
-                                    <span class="currency-input">£ <input type="text" id="textInput"
-                                                                          value="10000"></span>
-                                    <br><br>
-                                    <button class="buy-button" onclick="buttonBuyStock()" style="color: #ffffff;">
-                                        <a>Buy</a></button>
+
+                                    <!----->
+
                                 </div>
                             </div>
                         </main>
@@ -118,23 +93,12 @@
                 </div>
             </div>
         </div>
+        <!-- strategy choice -->
         <div class="col-md-4" style="height=100%">
             <div class="panel panel-green">
                 <div class="panel-body" style="background:#95a3d0">
-                    <h2><u>Filters</u></h2>
-                    <div style="padding-top:30px" class="panel-body">
-                        <div class="innertube">
-                            <div class="styled-select">
-                                <select>
-                                    <option value="1">Economic Sector 1</option>
-                                    <option value="2">Economic Sector 2</option>
-                                    <option value="3">Economic Sector 3</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
                     <h2><u>Current choice</u></h2>
-                    <div style="padding-top:30px" class="panel-body">
+                    <div class="panel-body">
                         <div class="innertube">
                             <h5 id="selected-stock" class="choice">GOOGL</h5>
                             <div class="nowrap">
@@ -148,7 +112,44 @@
                             </div>
                         </div>
                     </div>
-
+                    <hr>
+                    <h3>Recommended options</h3>
+                    <div class="styled-select">
+                        <select id="stocks-recommended" onchange="updateSelectedRecommendedStock()">
+                            <option value="GOOGL">Alphabet Inc</option>
+                            <option value="AMAZN">Amazon</option>
+                            <option value="FB">Facebook Inc.</option>
+                        </select>
+                    </div>
+                    <h3>Available options</h3>
+                    <div class="styled-select">
+                        <select id="stocks" onchange="updateSelectedStock()">
+                            <option value="GOOGL">Alphabet Inc</option>
+                            <option value="AAPL">Apple Inc.</option>
+                            <option value="AMAZN">Amazon</option>
+                            <option value="DB">Deutsche Bank AG (USA)</option>
+                            <option value="FB">Facebook Inc.</option>
+                            <option value="UNG">United States Natural Gas Fund, LP</option>
+                            <option value="DIS">Walt Disney Co.</option>
+                        </select>
+                    </div>
+                    <hr>
+                    <h3>Amount:</h3>
+                    <div style="clear: both"> <!-- keep h6 headings on same line -->
+                        <h4 style="float: left">£1000</h4>
+                        <h4 style="float: right">£100000</h4>
+                    </div>
+                    <div class="nowrap">
+                        <input id="slider" type="range" min="1000" max="100000" step="1000"
+                               value="10000"
+                               onchange="updatePrice();"/>
+                    </div>
+                    <br>
+                    <div class="inline">
+                        <h5 style="color: #2c9325; font-size: 30px;" id="textInput">£10000</h5>
+                    </div>
+                    <button class="buy-button" onclick="buttonBuyStock()" style="color: #ffffff;">
+                        <a>Buy</a></button>
                 </div>
             </div>
         </div>
