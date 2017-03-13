@@ -1,0 +1,13 @@
+.all{
+	margin: -10px;
+	padding: 50px;
+}
+
+.focus{
+	border: 1px solid #000000;
+	background-color: #ffffff;
+	width: 800px;
+	height: 600px;
+	margin: auto;
+	padding: 0px;
+}
