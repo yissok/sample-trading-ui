@@ -161,6 +161,8 @@ function mwheel(e){
 }
 
 window.onresize = function(e){
+	canvas.width = parseInt(cs.getPropertyValue('width'), 10);
+	canvas.height = parseInt(cs.getPropertyValue('height'), 10);
 };
 
 function draw(){
@@ -203,8 +205,9 @@ function begin(){
 	cs = getComputedStyle(img);
 	canvas = document.getElementById("chart");
 	c = canvas.getContext("2d");
+	map = new Image();
+	map.src = "world-map.gif";
 	c.lineWidth = 1.5;
-	canvas.top = -parseInt(cs.getPropertyValue('height'), 10);
 	canvas.width = parseInt(cs.getPropertyValue('width'), 10);
 	canvas.height = parseInt(cs.getPropertyValue('height'), 10);
 	
