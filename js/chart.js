@@ -257,7 +257,7 @@ function mdown(e){
 		buttons[0].list=false;
 	} else {
 		if (dx >= 20 && dy >= 60 && dx <= 120 && dy <= 80){
-			fish = !fish
+			fish = !fish;
 		}
 		for (var i = 0; i < s.length; i++){
 			if (dx >= canvas.width - bounds.x2 + 20 && dy >= 20+30*i && dx <= canvas.width - bounds.x2 + 120 && dy <= 40+30*i){
