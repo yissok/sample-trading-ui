@@ -4,7 +4,7 @@ body {
 
 #rcorners1.active {
     border-radius: 5px;
-    background: #5CB85C;
+    background: #95a3d0;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -16,7 +16,7 @@ body {
 }
 
 #rcorners1.x {
-    background-color: #275927;
+    background-color: #7184c1;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -30,7 +30,7 @@ body {
 
 #rcorners1:hover:not(.active) {
     border-radius: 5px;
-    background: #5CB85C;
+    background: #95a3d0;
 }
 
 #topBar {
@@ -38,7 +38,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #275927;
+    background-color: #7184c1;
     position: fixed;
     top: 0;
     width: 100%;
