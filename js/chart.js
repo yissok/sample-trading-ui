@@ -242,7 +242,7 @@ function mdown(e){
     
 	dx = e.x - canvas.getBoundingClientRect().left;
 	dy = e.y - canvas.getBoundingClientRect().top;
-	if (dx  >= 20 && dy >= 20 && dx <= 120 && dy <= 40){
+	if (dx >= 20 && dy >= 20 && dx <= 120 && dy <= 40){
 		buttons[0].list = !buttons[0].list;
 	} else if (buttons[0].list && (dx  >= 20 && dy >= 40 && dx <= 120 && dy <= 40+20*strats.length)){
 		var k = parseInt((dy-40)/20);
@@ -256,6 +256,9 @@ function mdown(e){
 		}
 		buttons[0].list=false;
 	} else {
+		if (dx >= 20 && dy >= 60 && dx <= 120 && dy <= 80){
+			fish = !fish;
+		}
 		for (var i = 0; i < s.length; i++){
 			if (dx >= canvas.width - bounds.x2 + 20 && dy >= 20+30*i && dx <= canvas.width - bounds.x2 + 120 && dy <= 40+30*i){
 				for (var j = i + 1; j < s.length; j++){
@@ -491,6 +494,12 @@ function drawStock(){
 		c.fillStyle="#000";
 		c.fillText(n+"%", p.x+7, p.y+4);
 	}
+	
+	c.fillStyle = "#fff";
+	c.fillRect(20,60,100,20);
+	c.fillStyle = "#000";
+	if(fish) c.fillText("Disengage Fish", 24,74);
+	else c.fillText("Engage Fish", 24,74);
 	
 	c.fillStyle = "#fff";
 	c.fillRect(20,20,100,20);
