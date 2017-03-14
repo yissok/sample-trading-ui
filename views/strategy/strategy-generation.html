@@ -96,7 +96,6 @@
 					<div class="form-group">
 						<input type="text" class="form-control input-lg" id="usr" value="Extra Profit Strategy">
 					</div>
-                    <hr>
                     <h3>Economic Sector</h3>
                     <div class="styled-select">
                         <select id="stocks-recommended" onchange="updateSelectedRecommendedStock()">
@@ -141,7 +140,6 @@
                         <input id="slider" type="range" min="0" max="100" step="1"
                                value="50"/>
                     </div>
-                    <hr>
                     <h3>Amount:</h3>
                     <div style="clear: both"> <!-- keep h6 headings on same line -->
                         <h4 style="float: left">£1000</h4>
@@ -149,13 +147,9 @@
                     </div>
                     <div class="nowrap">
                         <input id="slider" type="range" min="1000" max="100000" step="1000"
-                               value="10000"
-                               onchange="updatePrice();"/>
+                               value="10000"/>
                     </div>
-                    <br>
-                    <div class="inline">
-                        <h5 style="color: #2c9325; font-size: 30px;" id="textInput">£10000</h5>
-                    </div>
+					<h6> </h6>
                     <button class="buy-button" onclick="buttonBuyStock()" style="color: #ffffff;">
                         <a>Generate</a></button>
                 </div>
