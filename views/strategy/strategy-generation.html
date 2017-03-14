@@ -92,41 +92,54 @@
         <div class="col-md-4" style="height=100%">
             <div class="panel panel-green">
                 <div class="panel-body" style="background:#95a3d0">
-                    <h2><u>Current choice</u></h2>
-                    <div class="panel-body">
-                        <div class="innertube">
-                            <h5 id="selected-stock" class="choice">GOOGL</h5>
-                            <div class="nowrap">
-                                <h4>Technical Risk: </h4>
-                                <p>XX%</p>
-                            </div>
-                            <br>
-                            <div class="nowrap">
-                                <h4>Physical Risk: </h4>
-                                <p>XX%</p>
-                            </div>
-                        </div>
-                    </div>
+                    <h2><u>Strategy Name</u></h2>
+					<div class="form-group">
+						<input type="text" class="form-control input-lg" id="usr" value="Extra Profit Strategy">
+					</div>
                     <hr>
-                    <h3>Recommended options</h3>
+                    <h3>Economic Sector</h3>
                     <div class="styled-select">
                         <select id="stocks-recommended" onchange="updateSelectedRecommendedStock()">
-                            <option value="GOOGL">Alphabet Inc</option>
-                            <option value="AMAZN">Amazon</option>
-                            <option value="FB">Facebook Inc.</option>
+                            <option>All Sectors</option>
+							<option>Telecommunication</option>
+							<option>Legal services</option>
+							<option>Construction</option>
+							<option>Food processing</option>
+							<option>Consulting</option>
+							<option>Gambling</option>
+							<option>Retail sales</option>
+							<option>Franchising</option>
+							<option>Real estate</option>
+							<option>Education</option>
+							<option>Pharmaceuticals</option>
+							<option>Hospitality/Tourism</option>
+							<option>Mass media</option>
+							<option>Healthcare/hospitals</option>
+							<option>Public health</option>
+							<option>Information technology</option>
+							<option>Waste disposal</option>
+							<option>Banking</option>
+							<option>Insurance</option>
+							<option>Financial services</option>
                         </select>
                     </div>
-                    <h3>Available options</h3>
-                    <div class="styled-select">
-                        <select id="stocks" onchange="updateSelectedStock()">
-                            <option value="GOOGL">Alphabet Inc</option>
-                            <option value="AAPL">Apple Inc.</option>
-                            <option value="AMAZN">Amazon</option>
-                            <option value="DB">Deutsche Bank AG (USA)</option>
-                            <option value="FB">Facebook Inc.</option>
-                            <option value="UNG">United States Natural Gas Fund, LP</option>
-                            <option value="DIS">Walt Disney Co.</option>
-                        </select>
+                    <h3>Technical Risk:</h3>
+                    <div style="clear: both"> <!-- keep h6 headings on same line -->
+                        <h4 style="float: left">0%</h4>
+                        <h4 style="float: right">100%</h4>
+                    </div>
+                    <div class="nowrap">
+                        <input id="slider" type="range" min="0" max="100" step="1"
+                               value="50"/>
+                    </div>
+                    <h3>Physical Risk:</h3>
+                    <div style="clear: both"> <!-- keep h6 headings on same line -->
+                        <h4 style="float: left">0%</h4>
+                        <h4 style="float: right">100%</h4>
+                    </div>
+                    <div class="nowrap">
+                        <input id="slider" type="range" min="0" max="100" step="1"
+                               value="50"/>
                     </div>
                     <hr>
                     <h3>Amount:</h3>
@@ -144,7 +157,7 @@
                         <h5 style="color: #2c9325; font-size: 30px;" id="textInput">£10000</h5>
                     </div>
                     <button class="buy-button" onclick="buttonBuyStock()" style="color: #ffffff;">
-                        <a>Buy</a></button>
+                        <a>Generate</a></button>
                 </div>
             </div>
         </div>
