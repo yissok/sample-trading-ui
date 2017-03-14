@@ -12,7 +12,7 @@ bounds.h = 500;
 var selected = -1;
 
 var h = [];
-h[0] = newh(100, 100, 100);
+h[0] = newh(400, 400, 100);
 
 vx = 0;
 vy = 0;
