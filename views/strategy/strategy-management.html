@@ -26,6 +26,52 @@
         p, h1, h2, h3, h4, h5 {
             color: white;
         }
+        
+        
+        #tooltip1 
+        { 
+            position: absolute; 
+        }
+        #tooltip1 a span 
+        { 
+            display: none; 
+            color: #FFFFFF; 
+        }
+        #tooltip1 a:hover span 
+        {
+            display: block; 
+            position: absolute; 
+            width: 80px; 
+            background: #7184C1; 
+            height: 40px; 
+            right: -40px; 
+            top: -20px; 
+            color: #FFFFFF; 
+            padding: 0 0px;
+        }
+        
+        
+        #tooltip2 
+        { 
+            position: relative; 
+        }
+        #tooltip2 a span 
+        { 
+            display: none; 
+            color: #FFFFFF; 
+        }
+        #tooltip2 a:hover span 
+        {
+            display: block; 
+            position: absolute; 
+            width: 80px; 
+            background: #7184C1; 
+            height: 40px; 
+            right: 0px; 
+            top: 0px; 
+            color: #FFFFFF; 
+            padding: 0 0px;
+        }
     </style>
 </head>
 
@@ -154,71 +200,92 @@
         
         <div class="col-md-6">
             <div class="row">
-        <div class="col-md-12" align="middle">
-            <div class="panel panel-green">
-                <div class="panel-body" style="background:#95a3d0">
-                    <h1>Balance</h1>
-                    <h1> £280.00</h1>
+                
+                <div class="col-md-12" align="middle">
+                    <p id="tooltip1" style="color: #414141; right:10px" >
+                    <a href="#"><img src="../../images/infoWhite.png" alt="Logo" width="40px" height="40px" align="middle" vspace="5" hspace="15"/>
+                    <span>Check me out!</span>
+                    </a>
+                </p>
+                    <div class="panel panel-green">
+                        <div class="panel-body" style="background:#95a3d0">
+                            <h1>Balance</h1>
+                            <h1> £280.00</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
             <div class="panel panel-green">
+                <p id="tooltip1" style="color: #414141; right:10px" >
+                    <a href="#"><img src="../../images/infoWhite.png" alt="Logo" width="40px" height="40px" align="middle" vspace="5" hspace="15"/>
+                    <span>Check me out!</span>
+                    </a>
+                </p>
                 <div class="panel-body" style="background:#95a3d0">
                     <h1>My Strategies</h1>
                     <div class="panel-body">
                         <div class="list-group">
+                            <p id="tooltip2" style="color: #414141;">
                             <a href="#" class="list-group-item list-group-item-success" data-toggle="modal" data-target="#myModal">
-                                <i class="fa fa-comment fa-fw"></i> £17.22 - AAPL
+                                
+                                <i class="fa fa-comment fa-fw"></i> £170.22 - Apple Inc.
                                 <span class="pull-right text-muted small"><em>+1.28%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
+
                             </a>
                             <a href="#" class="list-group-item list-group-item-warning" data-toggle="modal" data-target="#myModal">
-                                <i class="fa fa-comment fa-fw"></i> £65.74 - GOOG
+                                <i class="fa fa-comment fa-fw"></i> £652.74 - Walt Disney Co.
                                 <span class="pull-right text-muted small"><em>+0.08%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
                             </a>
                             <a href="#" class="list-group-item list-group-item-danger" data-toggle="modal" data-target="#myModal">
-                                <i class="fa fa-comment fa-fw"></i> £23.63 - AMZN
+                                <i class="fa fa-comment fa-fw"></i> £233.63 - Amazon
                                 <span class="pull-right text-muted small"><em>-3.28%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
                             </a>
                             <a href="#" class="list-group-item list-group-item-success" data-toggle="modal" data-target="#myModal">
-                                <i class="fa fa-comment fa-fw"></i> £98.96 - FTSE
+                                <i class="fa fa-comment fa-fw"></i> £985.96 - Deutsche Bank AG (USA)
                                 <span class="pull-right text-muted small"><em>+1.50%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
                             </a>
                             <a href="#" class="list-group-item list-group-item-warning" data-toggle="modal" data-target="#myModal">
-                                <i class="fa fa-comment fa-fw"></i> £32.45 - NIKE
+                                <i class="fa fa-comment fa-fw"></i> £326.45 - Facebook Inc.
                                 <span class="pull-right text-muted small"><em>-0.10%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
                             </a>
                             <a href="#" class="list-group-item list-group-item-success" data-toggle="modal" data-target="#myModal">
-                                <i class="fa fa-comment fa-fw"></i> £12.76 - IBM
+                                <i class="fa fa-comment fa-fw"></i> £122.76 - United States Natural Gas Fund, LP
                                 <span class="pull-right text-muted small"><em>+1.58%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
                             </a>
+                                </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
         <div class="col-md-6" style="height=100%">
             
             <div class="row">
                 <div class="col-md-12">
+                    <p id="tooltip1" style="color: #414141; right:10px" >
+                    <a href="#"><img src="../../images/infoWhite.png" alt="Logo" width="40px" height="40px" align="middle" vspace="5" hspace="15"/>
+                    <span>Check me out!</span>
+                    </a>
+                </p>
                     <div class="panel panel-green">
                         <div class="panel-body" style="background:#95a3d0">
                             <h1>News</h1>
