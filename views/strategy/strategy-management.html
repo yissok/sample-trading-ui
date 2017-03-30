@@ -22,6 +22,27 @@
     <!-- Popup -->
     <script src="../../js/jqPopup.js"></script>
     <script src="../../js/bsPopup.js"></script>
+    
+    
+    
+    
+    <script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "450px";
+    document.getElementById("bd").style.marginRight = "450px";
+    document.body.style.backgroundColor = "white";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("bd").style.marginRight= "0";
+    document.body.style.backgroundColor = "white";
+}
+</script>
+    
+    
+    
+    
     <style>
         p, h1, h2, h3, h4, h5 {
             color: white;
@@ -72,12 +93,64 @@
             color: #FFFFFF; 
             padding: 0 0px;
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #95a3d0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #FFFFFF;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #FFFFFF;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 1;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#bd {
+    transition: margin-right .5s;
+    padding: 0px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
     </style>
 </head>
 
 <!----------------------------------------------------------------- BODY ------------------------------------------------------------------->
 
-<body style="background-color:#FFFFFF">
+<body style="background-color:#FFFFFF" id="bd">
 
 <!----------------------------------------------------------------- header ------------------------------------------------------------------->
 <div class="topBar" id="topBar">
@@ -106,92 +179,83 @@
 
 <!----------------------------------------------------------------- body ------------------------------------------------------------------->
 
-<!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content" style="background:#95a3d0">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modify Strategy</h4>
-        </div>
-        <div class="modal-body">
-            
-            
-            
-            
-            <div class="panel-body" style="background:#95a3d0">
-                    <h2><u>Current choice</u></h2>
-                    <div class="panel-body">
-                        <div class="innertube">
-                            <h5 id="selected-stock" class="choice">GOOGL</h5>
-                            <div class="nowrap">
-                                <h4>Technical Risk: </h4>
-                                <p>XX%</p>
-                            </div>
-                            
-                            <div class="nowrap">
-                                <h4>Physical Risk: </h4>
-                                <p>XX%</p>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <h5>Recommended options</h5>
-                    <div class="styled-select">
-                        <select id="stocks-recommended" onchange="updateSelectedRecommendedStock()">
-                            <option value="GOOGL">Alphabet Inc</option>
-                            <option value="AMAZN">Amazon</option>
-                            <option value="FB">Facebook Inc.</option>
-                        </select>
-                    </div>
-                    <h5>Available options</h5>
-                    <div class="styled-select">
-                        <select id="stocks" onchange="updateSelectedStock()">
-                            <option value="GOOGL">Alphabet Inc</option>
-                            <option value="AAPL">Apple Inc.</option>
-                            <option value="AMAZN">Amazon</option>
-                            <option value="DB">Deutsche Bank AG (USA)</option>
-                            <option value="FB">Facebook Inc.</option>
-                            <option value="UNG">United States Natural Gas Fund, LP</option>
-                            <option value="DIS">Walt Disney Co.</option>
-                        </select>
-                    </div>
-                    <hr>
-                    <h5>Amount:</h5>
-                    <div style="clear: both"> <!-- keep h6 headings on same line -->
-                        <h4 style="float: left">£1000</h4>
-                        <h4 style="float: right">£100000</h4>
-                    </div>
-                    <div class="nowrap">
-                        <input id="slider" type="range" min="1000" max="100000" step="1000"
-                               value="10000"
-                               onchange="updatePrice();"/>
-                    </div>
-                    
-                    <div class="inline">
-                        <h5 style="color: #2c9325; font-size: 30px;" id="textInput">£10000</h5>
-                    </div>
-                    <button class="buy-button" onclick="buttonBuyStock()" style="color: #ffffff;">
-                        <a>Buy</a></button>
-                </div>
-            
-            
-            
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-    
+
 <div id="wrapper">
     
     
-    
+    <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        
+        
+        
+        <div class="panel-body" style="background:#95a3d0">
+                    <h3>Strategy Name</h3>
+					<div class="form-group">
+						<input type="text" class="form-control input-lg" id="usr" value="Extra Profit Strategy">
+					</div>
+                    <h4>Economic Sector</h4>
+                    <div class="styled-select">
+                        <select id="stocks-recommended" onchange="updateSelectedRecommendedStock()">
+                            <option>All Sectors</option>
+							<option>Telecommunication</option>
+							<option>Legal services</option>
+							<option>Construction</option>
+							<option>Food processing</option>
+							<option>Consulting</option>
+							<option>Gambling</option>
+							<option>Retail sales</option>
+							<option>Franchising</option>
+							<option>Real estate</option>
+							<option>Education</option>
+							<option>Pharmaceuticals</option>
+							<option>Hospitality/Tourism</option>
+							<option>Mass media</option>
+							<option>Healthcare/hospitals</option>
+							<option>Public health</option>
+							<option>Information technology</option>
+							<option>Waste disposal</option>
+							<option>Banking</option>
+							<option>Insurance</option>
+							<option>Financial services</option>
+                        </select>
+                    </div>
+                    <h4>Technical Risk:</h4>
+                    <div style="clear: both"> <!-- keep h6 headings on same line -->
+                        <p style="float: left">0%</p>
+                        <p style="float: right">100%</p>
+                    </div>
+                    <div class="nowrap">
+                        <input id="slider" type="range" min="0" max="100" step="1"
+                               value="50"/>
+                    </div>
+                    <h4>Physical Risk:</h4>
+                    <div style="clear: both"> <!-- keep h6 headings on same line -->
+                        <p style="float: left">0%</p>
+                        <p style="float: right">100%</p>
+                    </div>
+                    <div class="nowrap">
+                        <input id="slider" type="range" min="0" max="100" step="1"
+                               value="50"/>
+                    </div>
+                    <h4>Amount:</h4>
+                    <div style="clear: both"> <!-- keep h6 headings on same line -->
+                        <p style="float: left">£1000</p>
+                        <p style="float: right">£100000</p>
+                    </div>
+                    <div class="nowrap">
+                        <input id="slider" type="range" min="1000" max="100000" step="1000"
+                               value="10000"/>
+                    </div>
+                    <button class="buy-button" onclick="buttonBuyStock()" style="color: #ffffff;">
+                        <a>Generate</a></button>
+                </div>
+        
+        
+        
+        
+</div>
+
+
     
     
     <div class="row" style="width: 95%;
@@ -226,7 +290,7 @@
                     <div class="panel-body">
                         <div class="list-group">
                             <p id="tooltip2" style="color: #414141;">
-                            <a href="#" class="list-group-item list-group-item-success" data-toggle="modal" data-target="#myModal">
+                            <a href="#" class="list-group-item list-group-item-success" data-toggle="modal" data-target="#myModal" onclick="openNav()">
                                 
                                 <i class="fa fa-comment fa-fw"></i> £170.22 - Apple Inc.
                                 <span class="pull-right text-muted small" ><em>+1.28%
@@ -235,35 +299,35 @@
                                     </span>
 
                             </a>
-                            <a href="#" class="list-group-item list-group-item-warning" data-toggle="modal" data-target="#myModal">
+                            <a href="#" class="list-group-item list-group-item-warning" data-toggle="modal" data-target="#myModal" onclick="openNav()">
                                 <i class="fa fa-comment fa-fw"></i> £652.74 - Walt Disney Co.
                                 <span class="pull-right text-muted small"><em>+0.08%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-danger" data-toggle="modal" data-target="#myModal">
+                            <a href="#" class="list-group-item list-group-item-danger" data-toggle="modal" data-target="#myModal" onclick="openNav()">
                                 <i class="fa fa-comment fa-fw"></i> £233.63 - Amazon
                                 <span class="pull-right text-muted small"><em>-3.28%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-success" data-toggle="modal" data-target="#myModal">
+                            <a href="#" class="list-group-item list-group-item-success" data-toggle="modal" data-target="#myModal" onclick="openNav()">
                                 <i class="fa fa-comment fa-fw"></i> £985.96 - Deutsche Bank AG (USA)
                                 <span class="pull-right text-muted small"><em>+1.50%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-warning" data-toggle="modal" data-target="#myModal">
+                            <a href="#" class="list-group-item list-group-item-warning" data-toggle="modal" data-target="#myModal" onclick="openNav()">
                                 <i class="fa fa-comment fa-fw"></i> £326.45 - Facebook Inc.
                                 <span class="pull-right text-muted small"><em>-0.10%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-success" data-toggle="modal" data-target="#myModal">
+                            <a href="#" class="list-group-item list-group-item-success" data-toggle="modal" data-target="#myModal" onclick="openNav()">
                                 <i class="fa fa-comment fa-fw"></i> £122.76 - United States Natural Gas Fund, LP
                                 <span class="pull-right text-muted small"><em>+1.58%
                                         <i class="glyphicon glyphicon-info-sign"></i>
