@@ -18,133 +18,122 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="../../images/favicon.jpg">
-    
+
     <!-- Popup -->
     <script src="../../js/jqPopup.js"></script>
     <script src="../../js/bsPopup.js"></script>
-    
-    
-    
-    
-    <script>
-function openNav() {
-    document.getElementById("mySidenav").style.width = "450px";
-    document.getElementById("bd").style.marginRight = "450px";
-    document.body.style.backgroundColor = "white";
-}
 
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("bd").style.marginRight= "0";
-    document.body.style.backgroundColor = "white";
-}
-</script>
-    
-    
-    
-    
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "450px";
+            document.getElementById("bd").style.marginRight = "450px";
+            document.body.style.backgroundColor = "white";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("bd").style.marginRight = "0";
+            document.body.style.backgroundColor = "white";
+        }
+    </script>
+
+
     <style>
         p, h1, h2, h3, h4, h5 {
             color: white;
         }
-        
-        
-        #tooltip1 
-        { 
-            position: absolute; 
+
+        #tooltip1 {
+            position: absolute;
         }
-        #tooltip1 a span 
-        { 
-            display: none; 
-            color: #FFFFFF; 
+
+        #tooltip1 a span {
+            display: none;
+            color: #FFFFFF;
         }
-        #tooltip1 a:hover span 
-        {
-            display: block; 
-            position: absolute; 
-            width: 80px; 
-            background: #7184C1; 
-            height: 40px; 
-            right: -20px; 
-            top: -10px; 
-            color: #FFFFFF; 
+
+        #tooltip1 a:hover span {
+            display: block;
+            position: absolute;
+            width: 80px;
+            background: #7184C1;
+            height: 40px;
+            right: -20px;
+            top: -10px;
+            color: #FFFFFF;
             padding: 0 0px;
         }
-        
-        
-        #tooltip2 
-        { 
-            position: relative; 
+
+        #tooltip2 {
+            position: relative;
         }
-        #tooltip2 a span 
-        { 
-            display: none; 
-            color: #FFFFFF; 
+
+        #tooltip2 a span {
+            display: none;
+            color: #FFFFFF;
         }
-        #tooltip2 a:hover span 
-        {
-            display: block; 
-            position: absolute; 
-            width: 60px; 
-            background: #7184C1; 
-            height: 20px; 
-            right: 0px; 
-            top: 0px; 
-            color: #FFFFFF; 
+
+        #tooltip2 a:hover span {
+            display: block;
+            position: absolute;
+            width: 60px;
+            background: #7184C1;
+            height: 20px;
+            right: 0px;
+            top: 0px;
+            color: #FFFFFF;
             padding: 0 0px;
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         .sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    background-color: #95a3d0;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: #95a3d0;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
 
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #FFFFFF;
-    display: block;
-    transition: 0.3s
-}
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #FFFFFF;
+            display: block;
+            transition: 0.3s
+        }
 
-.sidenav a:hover, .offcanvas a:focus{
-    color: #FFFFFF;
-}
+        .sidenav a:hover, .offcanvas a:focus {
+            color: #FFFFFF;
+        }
 
-.sidenav .closebtn {
-    position: absolute;
-    top: 1;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
+        .sidenav .closebtn {
+            position: absolute;
+            top: 1;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
 
-#bd {
-    transition: margin-right .5s;
-    padding: 0px;
-}
+        #bd {
+            transition: margin-right .5s;
+            padding: 0px;
+        }
 
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 
@@ -155,12 +144,7 @@ function closeNav() {
 <!----------------------------------------------------------------- header ------------------------------------------------------------------->
 <div class="topBar" id="topBar">
     <ul>
-        <li><img src="../../images/logo.png" alt="Logo" width="109px" height="40px" align="middle" vspace="5"
-                 hspace="15"/>
-        </li>
-        <li>
-            <button class="x" id="rcorners1" onclick="location.href='../../index.html'">Home</button>
-        </li>
+        <li><a href="../../index.html"><img src="../../images/logo.png" alt="Logo" width="109px" height="40px" align="middle" vspace="5" hspace="15"/></a>
         <li>
             <button class="x" id="rcorners1" onclick="location.href='../strategy/strategy-generation.html'">New
                 strategy
@@ -181,96 +165,92 @@ function closeNav() {
 
 
 <div id="wrapper">
-    
-    
+
+
     <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        
-        
-        
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+
         <div class="panel-body" style="background:#95a3d0">
-                    <h3>Strategy Name</h3>
-					<div class="form-group">
-						<input type="text" class="form-control input-lg" id="usr" value="Extra Profit Strategy">
-					</div>
-                    <h4>Economic Sector</h4>
-                    <div class="styled-select">
-                        <select id="stocks-recommended" onchange="updateSelectedRecommendedStock()">
-                            <option>All Sectors</option>
-							<option>Telecommunication</option>
-							<option>Legal services</option>
-							<option>Construction</option>
-							<option>Food processing</option>
-							<option>Consulting</option>
-							<option>Gambling</option>
-							<option>Retail sales</option>
-							<option>Franchising</option>
-							<option>Real estate</option>
-							<option>Education</option>
-							<option>Pharmaceuticals</option>
-							<option>Hospitality/Tourism</option>
-							<option>Mass media</option>
-							<option>Healthcare/hospitals</option>
-							<option>Public health</option>
-							<option>Information technology</option>
-							<option>Waste disposal</option>
-							<option>Banking</option>
-							<option>Insurance</option>
-							<option>Financial services</option>
-                        </select>
-                    </div>
-                    <h4>Technical Risk:</h4>
-                    <div style="clear: both"> <!-- keep h6 headings on same line -->
-                        <p style="float: left">0%</p>
-                        <p style="float: right">100%</p>
-                    </div>
-                    <div class="nowrap">
-                        <input id="slider" type="range" min="0" max="100" step="1"
-                               value="50"/>
-                    </div>
-                    <h4>Physical Risk:</h4>
-                    <div style="clear: both"> <!-- keep h6 headings on same line -->
-                        <p style="float: left">0%</p>
-                        <p style="float: right">100%</p>
-                    </div>
-                    <div class="nowrap">
-                        <input id="slider" type="range" min="0" max="100" step="1"
-                               value="50"/>
-                    </div>
-                    <h4>Amount:</h4>
-                    <div style="clear: both"> <!-- keep h6 headings on same line -->
-                        <p style="float: left">£1000</p>
-                        <p style="float: right">£100000</p>
-                    </div>
-                    <div class="nowrap">
-                        <input id="slider" type="range" min="1000" max="100000" step="1000"
-                               value="10000"/>
-                    </div>
-                    <button class="buy-button" onclick="buttonBuyStock()" style="color: #ffffff;">
-                        <a>Generate</a></button>
-                </div>
-        
-        
-        
-        
-</div>
+            <h3>Strategy Name</h3>
+            <div class="form-group">
+                <input type="text" class="form-control input-lg" id="usr" value="Extra Profit Strategy">
+            </div>
+            <h4>Economic Sector</h4>
+            <div class="styled-select">
+                <select id="stocks-recommended" onchange="updateSelectedRecommendedStock()">
+                    <option>All Sectors</option>
+                    <option>Telecommunication</option>
+                    <option>Legal services</option>
+                    <option>Construction</option>
+                    <option>Food processing</option>
+                    <option>Consulting</option>
+                    <option>Gambling</option>
+                    <option>Retail sales</option>
+                    <option>Franchising</option>
+                    <option>Real estate</option>
+                    <option>Education</option>
+                    <option>Pharmaceuticals</option>
+                    <option>Hospitality/Tourism</option>
+                    <option>Mass media</option>
+                    <option>Healthcare/hospitals</option>
+                    <option>Public health</option>
+                    <option>Information technology</option>
+                    <option>Waste disposal</option>
+                    <option>Banking</option>
+                    <option>Insurance</option>
+                    <option>Financial services</option>
+                </select>
+            </div>
+            <h4>Technical Risk:</h4>
+            <div style="clear: both"> <!-- keep h6 headings on same line -->
+                <p style="float: left">0%</p>
+                <p style="float: right">100%</p>
+            </div>
+            <div class="nowrap">
+                <input id="slider" type="range" min="0" max="100" step="1"
+                       value="50"/>
+            </div>
+            <h4>Physical Risk:</h4>
+            <div style="clear: both"> <!-- keep h6 headings on same line -->
+                <p style="float: left">0%</p>
+                <p style="float: right">100%</p>
+            </div>
+            <div class="nowrap">
+                <input id="slider" type="range" min="0" max="100" step="1"
+                       value="50"/>
+            </div>
+            <h4>Amount:</h4>
+            <div style="clear: both"> <!-- keep h6 headings on same line -->
+                <p style="float: left">£1000</p>
+                <p style="float: right">£100000</p>
+            </div>
+            <div class="nowrap">
+                <input id="slider" type="range" min="1000" max="100000" step="1000"
+                       value="10000"/>
+            </div>
+            <button class="buy-button" onclick="buttonBuyStock()" style="color: #ffffff;">
+                <a>Generate</a></button>
+        </div>
 
 
-    
-    
+    </div>
+
+
     <div class="row" style="width: 95%;
                                 float: left;
                                 margin: 70px 0 15px 15px;">
-        
+
         <div class="col-md-6">
             <div class="row">
-                
+
                 <div class="col-md-12" align="middle">
-                    <p id="tooltip1" style="color: #414141; right:10px" >
-                    <a href="#"><img src="../../images/infoWhite.png" alt="Logo" width="40px" height="40px" align="middle" vspace="5" hspace="15"/>
-                    <span>Check me out!</span>
-                    </a>
-                </p>
+                    <p id="tooltip1" style="color: #414141; right:10px">
+                        <a href="#"><img src="../../images/infoWhite.png" alt="Logo" width="40px" height="40px"
+                                         align="middle" vspace="5" hspace="15"/>
+                            <span>Check me out!</span>
+                        </a>
+                    </p>
                     <div class="panel panel-green">
                         <div class="panel-body" style="background:#95a3d0">
                             <h1>Balance</h1>
@@ -280,9 +260,10 @@ function closeNav() {
                 </div>
             </div>
             <div class="panel panel-green">
-                <p id="tooltip1" style="color: #414141; right:10px" >
-                    <a href="#"><img src="../../images/infoWhite.png" alt="Logo" width="40px" height="40px" align="middle" vspace="5" hspace="15"/>
-                    <span align="middle">Check me out!</span>
+                <p id="tooltip1" style="color: #414141; right:10px">
+                    <a href="#"><img src="../../images/infoWhite.png" alt="Logo" width="40px" height="40px"
+                                     align="middle" vspace="5" hspace="15"/>
+                        <span align="middle">Check me out!</span>
                     </a>
                 </p>
                 <div class="panel-body" style="background:#95a3d0">
@@ -290,66 +271,73 @@ function closeNav() {
                     <div class="panel-body">
                         <div class="list-group">
                             <p id="tooltip2" style="color: #414141;">
-                            <a href="#" class="list-group-item list-group-item-success" data-toggle="modal" data-target="#myModal" onclick="openNav()">
-                                
-                                <i class="fa fa-comment fa-fw"></i> £170.22 - Apple Inc.
-                                <span class="pull-right text-muted small" ><em>+1.28%
-                                        <i class="glyphicon glyphicon-info-sign" ></i>
+                                <a href="#" class="list-group-item list-group-item-success" data-toggle="modal"
+                                   data-target="#myModal" onclick="openNav()">
+
+                                    <i class="fa fa-comment fa-fw"></i> £170.22 - Apple Inc.
+                                    <span class="pull-right text-muted small"><em>+1.28%
+                                        <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
 
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-warning" data-toggle="modal" data-target="#myModal" onclick="openNav()">
-                                <i class="fa fa-comment fa-fw"></i> £652.74 - Walt Disney Co.
-                                <span class="pull-right text-muted small"><em>+0.08%
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-warning" data-toggle="modal"
+                                   data-target="#myModal" onclick="openNav()">
+                                    <i class="fa fa-comment fa-fw"></i> £652.74 - Walt Disney Co.
+                                    <span class="pull-right text-muted small"><em>+0.08%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-danger" data-toggle="modal" data-target="#myModal" onclick="openNav()">
-                                <i class="fa fa-comment fa-fw"></i> £233.63 - Amazon
-                                <span class="pull-right text-muted small"><em>-3.28%
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-danger" data-toggle="modal"
+                                   data-target="#myModal" onclick="openNav()">
+                                    <i class="fa fa-comment fa-fw"></i> £233.63 - Amazon
+                                    <span class="pull-right text-muted small"><em>-3.28%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-success" data-toggle="modal" data-target="#myModal" onclick="openNav()">
-                                <i class="fa fa-comment fa-fw"></i> £985.96 - Deutsche Bank AG (USA)
-                                <span class="pull-right text-muted small"><em>+1.50%
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-success" data-toggle="modal"
+                                   data-target="#myModal" onclick="openNav()">
+                                    <i class="fa fa-comment fa-fw"></i> £985.96 - Deutsche Bank AG (USA)
+                                    <span class="pull-right text-muted small"><em>+1.50%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-warning" data-toggle="modal" data-target="#myModal" onclick="openNav()">
-                                <i class="fa fa-comment fa-fw"></i> £326.45 - Facebook Inc.
-                                <span class="pull-right text-muted small"><em>-0.10%
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-warning" data-toggle="modal"
+                                   data-target="#myModal" onclick="openNav()">
+                                    <i class="fa fa-comment fa-fw"></i> £326.45 - Facebook Inc.
+                                    <span class="pull-right text-muted small"><em>-0.10%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-success" data-toggle="modal" data-target="#myModal" onclick="openNav()">
-                                <i class="fa fa-comment fa-fw"></i> £122.76 - United States Natural Gas Fund, LP
-                                <span class="pull-right text-muted small"><em>+1.58%
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-success" data-toggle="modal"
+                                   data-target="#myModal" onclick="openNav()">
+                                    <i class="fa fa-comment fa-fw"></i> £122.76 - United States Natural Gas Fund, LP
+                                    <span class="pull-right text-muted small"><em>+1.58%
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         </em>
                                     </span>
-                            </a>
-                                </p>
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <div class="col-md-6" style="height=100%">
-            
+
             <div class="row">
                 <div class="col-md-12">
-                    <p id="tooltip1" style="color: #414141; right:10px" >
-                    <a href="#"><img src="../../images/infoWhite.png" alt="Logo" width="40px" height="40px" align="middle" vspace="5" hspace="15"/>
-                    <span align="middle">Check me out!</span>
-                    </a>
-                </p>
+                    <p id="tooltip1" style="color: #414141; right:10px">
+                        <a href="#"><img src="../../images/infoWhite.png" alt="Logo" width="40px" height="40px"
+                                         align="middle" vspace="5" hspace="15"/>
+                            <span align="middle">Check me out!</span>
+                        </a>
+                    </p>
                     <div class="panel panel-green">
                         <div class="panel-body" style="background:#95a3d0">
                             <h1>News</h1>
@@ -366,27 +354,53 @@ function closeNav() {
                                     <div class="tab-pane fade in active" id="home-pills">
                                         <h4>Apple's ResearchKit generates reliable health data</h4>
                                         <p>
-                                        
-                                        
-                                        Health data collected entirely from smartphones can be reliable, research from Mount Sinai Hospital claims. The researchers involved found that Apple’s ResearchKit platform and an app for asthma were fairly accurate when compared to existing patient studies.
 
-Finding and recruiting participants is a big hurdle for medical studies. In recent years, people have started collecting health data from smartphones, which seems sensible given how common smartphones are. But this raises questions about whether data gathered this way can be trusted. Today’s study, published today in the journal Nature Biotechnology, suggests that health care apps may be reliable, at least in regards to asthma. This is good news since smartphone usage is only increasing and collecting reliable health data from them could be very good for research.
 
-Apple launched ResearchKit, a software medical platform, in 2015. It helps researchers recruit participants for studies; participants can enroll in trials and take surveys or provide other data. Early research partners included big names like the University of Oxford, Stanford Medicine, and the Dana-Farber Cancer Institute. The asthma mobile app from today’s study was one of the five disease-specific apps that Apple launched with the initial release of ResearchKit.
-                                            
-                                        
+                                            Health data collected entirely from smartphones can be reliable, research
+                                            from Mount Sinai Hospital claims. The researchers involved found that
+                                            Apple’s ResearchKit platform and an app for asthma were fairly accurate when
+                                            compared to existing patient studies.
+
+                                            Finding and recruiting participants is a big hurdle for medical studies. In
+                                            recent years, people have started collecting health data from smartphones,
+                                            which seems sensible given how common smartphones are. But this raises
+                                            questions about whether data gathered this way can be trusted. Today’s
+                                            study, published today in the journal Nature Biotechnology, suggests that
+                                            health care apps may be reliable, at least in regards to asthma. This is
+                                            good news since smartphone usage is only increasing and collecting reliable
+                                            health data from them could be very good for research.
+
+                                            Apple launched ResearchKit, a software medical platform, in 2015. It helps
+                                            researchers recruit participants for studies; participants can enroll in
+                                            trials and take surveys or provide other data. Early research partners
+                                            included big names like the University of Oxford, Stanford Medicine, and the
+                                            Dana-Farber Cancer Institute. The asthma mobile app from today’s study was
+                                            one of the five disease-specific apps that Apple launched with the initial
+                                            release of ResearchKit.
+
+
                                         </p>
                                     </div>
                                     <div class="tab-pane fade" id="profile-pills">
                                         <h4>New Mac Pro latest rumours</h4>
                                         <p>
-                                        
-                                        
-                                        When will Apple release a new Mac Pro for 2017? And what tech specs, new features and design changes should we expect when Apple updates the Mac Pro line for 2017? Or is it more likely that Apple will discontinue the Mac Pro instead of updating it?
 
-We've had a long wait for the new Mac Pro. The current Mac Pro model was announced at WWDC in June 2013, shipping that December, and, for a top-of-the range system, the Mac Pro is looking pretty long in the tooth. In addition, many of the Mac Pro's traditional creative professional audience (videographers, designers, photographers) have hung onto their ancient Mac Pro towers that predate the 2013 redesign because their old Mac Pros, which could be customised, offered more flexibility and power, at least at the time Apple launched the new-look 'trash can-style' Mac Pro.
-                                        
-                                        
+
+                                            When will Apple release a new Mac Pro for 2017? And what tech specs, new
+                                            features and design changes should we expect when Apple updates the Mac Pro
+                                            line for 2017? Or is it more likely that Apple will discontinue the Mac Pro
+                                            instead of updating it?
+
+                                            We've had a long wait for the new Mac Pro. The current Mac Pro model was
+                                            announced at WWDC in June 2013, shipping that December, and, for a
+                                            top-of-the range system, the Mac Pro is looking pretty long in the tooth. In
+                                            addition, many of the Mac Pro's traditional creative professional audience
+                                            (videographers, designers, photographers) have hung onto their ancient Mac
+                                            Pro towers that predate the 2013 redesign because their old Mac Pros, which
+                                            could be customised, offered more flexibility and power, at least at the
+                                            time Apple launched the new-look 'trash can-style' Mac Pro.
+
+
                                         </p>
                                     </div>
                                 </div>
